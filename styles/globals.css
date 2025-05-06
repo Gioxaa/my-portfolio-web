@@ -705,6 +705,17 @@ ul li {
     --card-padding: 1.5rem;
     --element-spacing: 1.25rem;
   }
+
+  .nav-link {
+    padding: 0.75rem 0 !important;
+  }
+
+  .navbar-collapse {
+    background-color: rgba(15, 23, 42, 0.95);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-top: 0.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -728,6 +739,58 @@ ul li {
     --section-spacing: 2.5rem;
     --card-padding: 1.25rem;
     --element-spacing: 1rem;
+  }
+
+  .card:hover {
+    transform: translateY(-3px); /* Less hover movement on mobile */
+  }
+
+  .hero-circle-border {
+    width: 240px !important;
+    height: 240px !important;
+    margin: 0 auto;
+  }
+
+  .hero-circle-inner {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .display-4 {
+    font-size: 2.75rem !important;
+  }
+
+  .h4, h4 {
+    font-size: 1.3rem;
+  }
+
+  /* Make sure elements with hover effects have touch equivalents */
+  .btn-touch-effect:active {
+    transform: translateY(-3px); 
+  }
+
+  .skill-badge:active {
+    background-color: rgba(14, 165, 233, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+/* Mobile-first for some components */
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .display-4 {
+    font-size: 2.5rem !important;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 5rem 0 3rem !important;
   }
 }
 
@@ -843,4 +906,26 @@ body::before {
     radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 90% 90%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
   z-index: -1;
+}
+
+/* Resume download button */
+.resume-download-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.resume-btn {
+  border-radius: 30px !important;
+  font-weight: 500 !important;
+  transition: var(--transition-normal) !important;
+  border-color: var(--accent) !important;
+  color: var(--text-light) !important;
+  background-color: rgba(14, 165, 233, 0.1) !important;
+}
+
+.resume-btn:hover {
+  transform: translateY(-3px);
+  background-color: rgba(14, 165, 233, 0.2) !important;
+  color: var(--text-bright) !important;
+  box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2);
 } 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { FaCode } from 'react-icons/fa';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { FaCode, FaFileDownload } from 'react-icons/fa';
 
 const Header = () => {
   const router = useRouter();
@@ -54,7 +54,7 @@ const Header = () => {
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto align-items-lg-center">
             <Link href="/" className={`nav-link ${isActive('/')}`}>
               Beranda
             </Link>
@@ -73,6 +73,12 @@ const Header = () => {
             <Link href="/jurnal" className={`nav-link ${isActive('/jurnal')}`}>
               Jurnal Bug Hunting
             </Link>
+            <a href="/files/cv-muhammad-reyhan.pdf" download className="ms-lg-3 mt-3 mt-lg-0 resume-download-link">
+              <Button variant="outline-light" size="sm" className="resume-btn">
+                <FaFileDownload className="me-2" />
+                Resume
+              </Button>
+            </a>
           </Nav>
         </Navbar.Collapse>
       </Container>

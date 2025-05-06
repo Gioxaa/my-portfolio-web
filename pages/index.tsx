@@ -45,15 +45,15 @@ export default function Home() {
                 dan cybersecurity bug bounty. Siap berkontribusi dalam tim dinamis dan proyek nyata.
               </p>
               <div className="d-flex gap-3 justify-content-center justify-content-lg-start">
-                <Button variant="primary" href="mailto:reyhan@example.com">
+                <Button variant="primary" href="mailto:reyhan@example.com" className="btn-touch-effect">
                   <FaEnvelope className="me-2" />
                   Email
                 </Button>
-                <Button variant="outline-light" href="https://wa.me/6281234567890">
+                <Button variant="outline-light" href="https://wa.me/6281234567890" className="btn-touch-effect">
                   <FaWhatsapp className="me-2" />
                   WhatsApp
                 </Button>
-                <Button variant="outline-light" href="https://github.com/yourusername" target="_blank">
+                <Button variant="outline-light" href="https://github.com/yourusername" target="_blank" className="btn-touch-effect">
                   <FaGithub className="me-2" />
                   GitHub
                 </Button>
@@ -481,7 +481,7 @@ export default function Home() {
                   </Card.Body>
                   <Card.Footer className="bg-transparent border-0 pt-0">
                     <div className="d-flex justify-content-center mt-2">
-                      <Button variant="outline-primary" size="sm">
+                      <Button variant="outline-primary" size="sm" className="btn-touch-effect">
                         GitHub <FaGithub className="ms-1" size={12} />
                       </Button>
                     </div>

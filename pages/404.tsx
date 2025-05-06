@@ -28,7 +28,7 @@ export default function Custom404() {
               </p>
               
               <div className="d-flex justify-content-center gap-3">
-                <Link href="/" passHref legacyBehavior>
+                <Link href="/" className="d-inline-block">
                   <Button variant="primary" size="lg" className="px-4 py-2">
                     <FaHome className="me-2" /> Kembali ke Beranda
                   </Button>

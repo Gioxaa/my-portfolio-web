@@ -177,7 +177,7 @@ export default function BugHuntingJournal() {
           
           <div className="text-center mt-5">
             <p className="text-secondary">
-              Jika Anda memiliki program bug bounty dan ingin berkolaborasi, <Link href="mailto:reyhan@example.com" className="link-accent">hubungi saya</Link>.
+              Jika Anda memiliki program bug bounty dan ingin berkolaborasi, <a href="mailto:reyhan@example.com" className="link-accent">hubungi saya</a>.
             </p>
           </div>
         </Container>
