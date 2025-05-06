@@ -12,7 +12,7 @@ interface LayoutProps {
 const Layout = ({ 
   children, 
   title = 'Muhammad Reyhan - Portfolio', 
-  description = 'Portfolio Muhammad Reyhan - Web Developer, AI Prompt Engineer, dan Cybersecurity Enthusiast dari Rokan Hulu, Riau' 
+  description = 'Portfolio of Muhammad Reyhan - Web Developer, AI Prompt Engineer, and Cybersecurity Enthusiast from Rokan Hulu, Riau' 
 }: LayoutProps) => {
   return (
     <>

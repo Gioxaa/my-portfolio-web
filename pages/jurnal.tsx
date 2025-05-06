@@ -33,13 +33,13 @@ const JournalItem = ({
             <FaServer className="me-1" /> Target: {target}
           </Badge>
           <Badge bg="info" className="me-2 mb-2 px-3 py-2">
-            <FaBug className="me-1" /> Metode: {method}
+            <FaBug className="me-1" /> Method: {method}
           </Badge>
         </div>
         <p className="mb-3">{description}</p>
         <div className="d-flex justify-content-end">
           <span className="text-secondary small">
-            <FaExclamationTriangle className="me-1" /> Untuk pembelajaran etis
+            <FaExclamationTriangle className="me-1" /> For ethical learning
           </span>
         </div>
       </Card.Body>
@@ -76,62 +76,62 @@ export default function BugHuntingJournal() {
     {
       id: 1,
       title: 'SQL Injection – registrasiulang.unri.ac.id',
-      description: 'Menggunakan query "\'or 1=1 -- -" untuk menguji kerentanan injection, kemudian melanjutkan dengan pengujian menggunakan sqlmap untuk mengonfirmasi kerentanan. Hasil menunjukkan adanya potensi pengambilan data sensitif melalui kueri yang tidak divalidasi dengan benar.',
+      description: 'Using the query "\'or 1=1 -- -" to test for injection vulnerability, then proceeding with testing using sqlmap to confirm the vulnerability. Results indicated potential sensitive data extraction through improperly validated queries.',
       method: 'SQL Injection',
       target: 'registrasiulang.unri.ac.id',
-      date: 'Januari 2024'
+      date: 'January 2024'
     },
     {
       id: 2,
-      title: 'Hash Prediktif pada URL Reset Password',
-      description: 'Mencoba memprediksi hash yang digunakan pada URL reset password, dengan menganalisa pola pembentukan hash dari beberapa sampel URL. Pola yang ditemukan menunjukkan bahwa hash dapat diprediksi dengan tingkat akurasi tertentu karena kurangnya elemen acak dalam pembentukannya.',
+      title: 'Predictive Hash on Password Reset URL',
+      description: 'Attempting to predict the hash used in password reset URLs by analyzing hash formation patterns from several URL samples. The patterns found showed that the hash could be predicted with a certain level of accuracy due to the lack of random elements in its formation.',
       method: 'Hash Analysis',
-      target: 'Aplikasi web institusi',
-      date: 'Februari 2024'
+      target: 'Institutional web application',
+      date: 'February 2024'
     },
     {
       id: 3,
-      title: 'CSRF Token Reuse pada Portal Mahasiswa',
-      description: 'Mengidentifikasi bahwa token CSRF tidak diregenerasi pada setiap request, memungkinkan penggunaan kembali token yang sama untuk beberapa operasi. Hal ini membuka celah keamanan di mana penyerang dapat menggunakan token yang sama untuk melakukan tindakan atas nama pengguna yang terautentikasi.',
+      title: 'CSRF Token Reuse on Student Portal',
+      description: 'Identifying that CSRF tokens were not regenerated on each request, allowing the same token to be reused for multiple operations. This creates a security vulnerability where attackers can use the same token to perform actions on behalf of authenticated users.',
       method: 'CSRF Token Reuse',
-      target: 'Portal mahasiswa',
-      date: 'Februari 2024'
+      target: 'Student portal',
+      date: 'February 2024'
     },
     {
       id: 4,
-      title: 'IDOR pada Sistem Akademik',
-      description: 'Memanipulasi parameter NIM atau ID pada URL untuk mengakses data yang seharusnya tidak dapat diakses oleh pengguna. Sistem tidak melakukan verifikasi apakah pengguna yang mengakses data memiliki izin yang benar, sehingga memungkinkan akses data mahasiswa lain.',
+      title: 'IDOR on Academic System',
+      description: 'Manipulating student ID or ID parameters in URLs to access data that should not be accessible to the user. The system did not verify whether the user accessing the data had the correct permissions, allowing access to other students\' data.',
       method: 'IDOR',
-      target: 'Sistem akademik kampus',
-      date: 'Maret 2024'
+      target: 'Campus academic system',
+      date: 'March 2024'
     },
     {
       id: 5,
-      title: 'File Upload Bypass pada Sistem Dokumen',
-      description: 'Menguji kerentanan upload file dengan teknik seperti memodifikasi ekstensi file menjadi ".pdf.php" dan melakukan MIME spoofing. Berhasil mengunggah file PHP yang dapat dieksekusi server melalui validasi yang hanya memeriksa ekstensi file tanpa analisis konten yang mendalam.',
+      title: 'File Upload Bypass on Document System',
+      description: 'Testing file upload vulnerabilities with techniques such as modifying file extensions to ".pdf.php" and performing MIME spoofing. Successfully uploaded PHP files that could be executed by the server through validation that only checked file extensions without in-depth content analysis.',
       method: 'File Upload Bypass',
-      target: 'Sistem upload dokumen',
-      date: 'Maret 2024'
+      target: 'Document upload system',
+      date: 'March 2024'
     },
     {
       id: 6,
-      title: 'Error Disclosure dan Information Leakage',
-      description: 'Berhasil menangkap error dan informasi debug dari server yang memberikan petunjuk mengenai struktur database dan konfigurasi server. Informasi ini potensial digunakan untuk menyusun serangan lebih lanjut karena mengungkapkan jalur file, versi software, dan struktur database.',
+      title: 'Error Disclosure and Information Leakage',
+      description: 'Successfully capturing error and debug information from servers that provided clues about database structure and server configuration. This information could potentially be used to compose further attacks as it revealed file paths, software versions, and database structure.',
       method: 'Error Disclosure',
-      target: 'Berbagai aplikasi web',
+      target: 'Various web applications',
       date: 'April 2024'
     },
   ];
 
   return (
-    <Layout title="Jurnal Bug Hunting | Muhammad Reyhan" description="Dokumentasi uji coba keamanan dan bug hunting sebagai pembelajaran etis">
+    <Layout title="Bug Hunting Journal | Muhammad Reyhan" description="Documentation of security testing and bug hunting for ethical learning">
       <section className="py-5 section-fade">
         <Container>
           <div className="mb-5 text-center">
-            <h1 className="display-5 fw-bold mb-3 text-bright">Jurnal Bug Hunting</h1>
+            <h1 className="display-5 fw-bold mb-3 text-bright">Bug Hunting Journal</h1>
             <div className="w-75 mx-auto">
               <p className="lead text-secondary">
-                Dokumentasi perjalanan saya dalam eksplorasi keamanan siber dan penemuan kerentanan aplikasi web
+                Documentation of my journey in cybersecurity exploration and web application vulnerability discoveries
               </p>
             </div>
           </div>
@@ -145,12 +145,12 @@ export default function BugHuntingJournal() {
                       <FaExclamationTriangle size={24} className="text-warning" />
                     </div>
                     <div>
-                      <h3 className="h5 mb-2 text-bright">Peringatan Etika</h3>
+                      <h3 className="h5 mb-2 text-bright">Ethics Warning</h3>
                       <p className="mb-0 text-secondary">
-                        Semua eksplorasi ini untuk <span className="text-bright fw-bold">pembelajaran etis</span> dan 
-                        bagian dari proses belajar menjadi bug bounty hunter pemula. Pengujian hanya dilakukan pada 
-                        sistem yang memiliki program bug bounty atau dengan izin pemilik sistem. Tidak ada aktivitas ilegal 
-                        yang dilakukan dalam proses ini.
+                        All these explorations are for <span className="text-bright fw-bold">ethical learning</span> and 
+                        part of the process of becoming a beginner bug bounty hunter. Testing is only done on 
+                        systems that have a bug bounty program or with permission from the system owner. No illegal activities 
+                        were carried out in this process.
                       </p>
                     </div>
                   </div>
@@ -177,7 +177,7 @@ export default function BugHuntingJournal() {
           
           <div className="text-center mt-5">
             <p className="text-secondary">
-              Jika Anda memiliki program bug bounty dan ingin berkolaborasi, <a href="mailto:reyhan@example.com" className="link-accent">hubungi saya</a>.
+              If you have a bug bounty program and would like to collaborate, <a href="mailto:reyhan@example.com" className="link-accent">contact me</a>.
             </p>
           </div>
         </Container>

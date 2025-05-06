@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import { Container, Row, Col, Button, Card, ProgressBar, Carousel } from 'react-bootstrap';
-import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
+import CertificatePlaceholder from '@/components/CertificatePlaceholder';
 
 export default function Home() {
   useEffect(() => {
@@ -40,9 +41,9 @@ export default function Home() {
               <h1 className="display-4 fw-bold mb-3">Muhammad Reyhan</h1>
               <h2 className="h5 mb-3 text-secondary">Rokan Hulu, Riau</h2>
               <p className="lead mb-4">
-                Lulusan SMA yang membangun karier teknologi secara mandiri. 
-                Saya mengembangkan kemampuan di pemrograman, AI prompt engineering, 
-                dan cybersecurity bug bounty. Siap berkontribusi dalam tim dinamis dan proyek nyata.
+                Self-taught high school graduate building a career in technology. 
+                I develop skills in programming, AI prompt engineering, 
+                and cybersecurity bug bounty. Ready to contribute to dynamic teams and real projects.
               </p>
               <div className="d-flex gap-3 justify-content-center justify-content-lg-start">
                 <Button variant="primary" href="mailto:reyhan@example.com" className="btn-touch-effect">
@@ -108,8 +109,8 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="section-fade">
         <Container>
-          <h2 className="section-title">Tentang Saya</h2>
-          <p className="section-subtitle">Perjalanan saya dari belajar otodidak hingga menjadi developer dengan semangat untuk terus berkembang</p>
+          <h2 className="section-title">About Me</h2>
+          <p className="section-subtitle">My journey from self-taught learning to becoming a developer with a passion for continuous growth</p>
           
           <Row>
             <Col lg={12}>
@@ -124,7 +125,7 @@ export default function Home() {
                           borderRadius: '50%', 
                           background: 'var(--accent)' 
                         }}></div>
-                        <h3 className="h4 mb-0">Pendidikan</h3>
+                        <h3 className="h4 mb-0">Education</h3>
                       </div>
                       <p className="mb-4">SMA Negeri 2 Rambah Hilir</p>
                     </Col>
@@ -137,26 +138,26 @@ export default function Home() {
                           borderRadius: '50%', 
                           background: 'var(--accent)' 
                         }}></div>
-                        <h3 className="h4 mb-0">Pengalaman Organisasi</h3>
+                        <h3 className="h4 mb-0">Organization Experience</h3>
                       </div>
                       <div className="mb-4">
                         <Row>
                           <Col md={6} className="mb-3">
                             <div className="border-subtle rounded-sm p-3">
-                              <h4 className="h6 fw-bold mb-2">Sekretaris OSIS</h4>
-                              <p className="small text-secondary mb-0">Bertanggung jawab untuk dokumentasi dan komunikasi organisasi</p>
+                              <h4 className="h6 fw-bold mb-2">Secretary OSIS</h4>
+                              <p className="small text-secondary mb-0">OSIS SMA Negeri 2 Rambah Hilir (October 2023 - November 2024)</p>
                             </div>
                           </Col>
                           <Col md={6} className="mb-3">
                             <div className="border-subtle rounded-sm p-3">
-                              <h4 className="h6 fw-bold mb-2">Ketua Jurnalistik Komputer</h4>
-                              <p className="small text-secondary mb-0">Memimpin tim dalam penulisan dan penyuntingan konten</p>
+                              <h4 className="h6 fw-bold mb-2">Head of Computer Journalism</h4>
+                              <p className="small text-secondary mb-0">Computer Journalism Club (October 2022 - November 2024)</p>
                             </div>
                           </Col>
                           <Col md={6} className="mb-3">
                             <div className="border-subtle rounded-sm p-3">
-                              <h4 className="h6 fw-bold mb-2">Anggota SMANung Intelegensia</h4>
-                              <p className="small text-secondary mb-0">Berpartisipasi dalam kegiatan pengembangan akademik</p>
+                              <h4 className="h6 fw-bold mb-2">Member</h4>
+                              <p className="small text-secondary mb-0">SMANung Intelligence Team (October 2022 - November 2023)</p>
                             </div>
                           </Col>
                         </Row>
@@ -172,7 +173,7 @@ export default function Home() {
                         borderRadius: '50%', 
                         background: 'var(--accent)' 
                       }}></div>
-                      <h3 className="h4 mb-0">Prestasi</h3>
+                      <h3 className="h4 mb-0">Achievements</h3>
                     </div>
                     <Row>
                       <Col md={6} lg={3} className="mb-3">
@@ -191,9 +192,9 @@ export default function Home() {
                               fontSize: '1rem',
                               fontWeight: 'bold'
                             }}>1</div>
-                            <h5 className="h6 mb-0 fw-bold">Juara lomba film pendek</h5>
+                            <h5 className="h6 mb-0 fw-bold">3rd Place in Journalism Competition</h5>
                           </div>
-                          <p className="small text-secondary mb-0 ms-5 ps-2">Tingkat Sekolah</p>
+                          <p className="small text-secondary mb-0 ms-5 ps-2">Rokan Hulu Regency Level (May 2023)</p>
                         </div>
                       </Col>
                       <Col md={6} lg={3} className="mb-3">
@@ -212,9 +213,9 @@ export default function Home() {
                               fontSize: '1rem',
                               fontWeight: 'bold'
                             }}>2</div>
-                            <h5 className="h6 mb-0 fw-bold">Finalis debat</h5>
+                            <h5 className="h6 mb-0 fw-bold">3rd Place in Short Film Competition</h5>
                           </div>
-                          <p className="small text-secondary mb-0 ms-5 ps-2">Tingkat Kabupaten</p>
+                          <p className="small text-secondary mb-0 ms-5 ps-2">Rokan Hulu Regency Level (May 2024)</p>
                         </div>
                       </Col>
                       <Col md={6} lg={3} className="mb-3">
@@ -233,9 +234,9 @@ export default function Home() {
                               fontSize: '1rem',
                               fontWeight: 'bold'
                             }}>3</div>
-                            <h5 className="h6 mb-0 fw-bold">Juara jurnalistik</h5>
+                            <h5 className="h6 mb-0 fw-bold">3rd Place in OSN Informatics</h5>
                           </div>
-                          <p className="small text-secondary mb-0 ms-5 ps-2">Sekolah & Kabupaten</p>
+                          <p className="small text-secondary mb-0 ms-5 ps-2">Rokan Hulu Regency Level (May 2024)</p>
                         </div>
                       </Col>
                       <Col md={6} lg={3} className="mb-3">
@@ -254,9 +255,9 @@ export default function Home() {
                               fontSize: '1rem',
                               fontWeight: 'bold'
                             }}>4</div>
-                            <h5 className="h6 mb-0 fw-bold">Peringkat 3 OSN</h5>
+                            <h5 className="h6 mb-0 fw-bold">Finalist in Indonesian Debate Competition</h5>
                           </div>
-                          <p className="small text-secondary mb-0 ms-5 ps-2">Tingkat Kabupaten</p>
+                          <p className="small text-secondary mb-0 ms-5 ps-2">Riau Provincial Level (September 2024)</p>
                         </div>
                       </Col>
                     </Row>
@@ -271,8 +272,8 @@ export default function Home() {
       {/* Skills Section */}
       <section id="skills" className="section-fade">
         <Container>
-          <h2 className="section-title">Keahlian</h2>
-          <p className="section-subtitle">Beberapa kemampuan teknis yang telah saya kembangkan dan terus diasah</p>
+          <h2 className="section-title">Skills</h2>
+          <p className="section-subtitle">Technical abilities I've developed and continue to improve</p>
           
           <Row>
             <Col lg={4} md={6} className="mb-4">
@@ -353,7 +354,7 @@ export default function Home() {
                   </div>
                   <div className="flex-grow-1">
                     <div className="d-flex flex-wrap">
-                      {['SQL Injection', 'IDOR', 'File Upload Bypass', 'CSRF Token Reuse', 'SSRF', 'Hash Prediktif', 'Error Disclosure'].map((skill) => (
+                      {['SQL Injection', 'IDOR', 'File Upload Bypass', 'CSRF Token Reuse', 'SSRF', 'Predictive Hash', 'Error Disclosure'].map((skill) => (
                         <span key={skill} className="skill-badge">
                           {skill}
                         </span>
@@ -361,7 +362,7 @@ export default function Home() {
                     </div>
                     
                     <div className="mt-4">
-                      <p className="small text-secondary">Saya fokus pada keamanan aplikasi web dan etika pengujian penetrasi. Mengikuti prinsip responsible disclosure saat menemukan kerentanan keamanan.</p>
+                      <p className="small text-secondary">I focus on web application security and ethical penetration testing. Following responsible disclosure principles when finding security vulnerabilities.</p>
                     </div>
                   </div>
                 </Card.Body>
@@ -377,7 +378,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="h4 mb-2">Prompt Engineering</h3>
-                      <p className="text-secondary mb-0">Merancang prompt AI terstruktur untuk mendapatkan output yang optimal dari model bahasa seperti ChatGPT dan Gemini</p>
+                      <p className="text-secondary mb-0">Designing structured AI prompts to get optimal output from language models like ChatGPT and Gemini</p>
                     </div>
                   </div>
                   
@@ -389,26 +390,26 @@ export default function Home() {
                           <span className="badge bg-dark">85%</span>
                         </div>
                         <ProgressBar now={85} className="mb-1" style={{ height: '6px' }} />
-                        <p className="text-secondary small mt-1">Struktur prompt kompleks, context window optimization</p>
+                        <p className="text-secondary small mt-1">Complex prompt structures, context window optimization</p>
                       </div>
                       
                       <div className="mb-3">
                         <div className="d-flex justify-content-between align-items-center mb-2">
-                          <span className="fw-medium">Optimasi Output AI</span>
+                          <span className="fw-medium">AI Output Optimization</span>
                           <span className="badge bg-dark">80%</span>
                         </div>
                         <ProgressBar now={80} className="mb-1" style={{ height: '6px' }} />
-                        <p className="text-secondary small mt-1">Menciptakan prompt yang menghasilkan respon terstruktur dan konsisten</p>
+                        <p className="text-secondary small mt-1">Creating prompts that generate structured and consistent responses</p>
                       </div>
                     </Col>
                     <Col md={6}>
                       <div className="mb-3">
                         <div className="d-flex justify-content-between align-items-center mb-2">
-                          <span className="fw-medium">Sistem Prompt Kompleks</span>
+                          <span className="fw-medium">Complex Prompt Systems</span>
                           <span className="badge bg-dark">75%</span>
                         </div>
                         <ProgressBar now={75} className="mb-1" style={{ height: '6px' }} />
-                        <p className="text-secondary small mt-1">Merancang sistem prompt dengan instruksi multi-level</p>
+                        <p className="text-secondary small mt-1">Designing prompt systems with multi-level instructions</p>
                       </div>
                       
                       <div className="mb-3">
@@ -417,7 +418,7 @@ export default function Home() {
                           <span className="badge bg-dark">70%</span>
                         </div>
                         <ProgressBar now={70} className="mb-1" style={{ height: '6px' }} />
-                        <p className="text-secondary small mt-1">Mengintegrasikan AI ke dalam alur kerja otomatis</p>
+                        <p className="text-secondary small mt-1">Integrating AI into automated workflows</p>
                       </div>
                     </Col>
                   </Row>
@@ -431,32 +432,32 @@ export default function Home() {
       {/* Projects Section */}
       <section id="projects" className="section-fade">
         <Container>
-          <h2 className="section-title">Karya & Proyek</h2>
-          <p className="section-subtitle">Portofolio proyek dan eksperimen yang telah saya buat</p>
+          <h2 className="section-title">Works & Projects</h2>
+          <p className="section-subtitle">Portfolio of projects and experiments I've created</p>
           
           <Row>
             {[
               {
-                title: 'Website Portofolio',
-                desc: 'Website portofolio pribadi dengan Next.js dan Bootstrap, menampilkan keahlian dan proyek.',
+                title: 'Personal Portfolio',
+                desc: 'Personal portfolio website built with Next.js and Bootstrap, showcasing skills and projects.',
                 img: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
                 tech: ['Next.js', 'Bootstrap', 'React']
               },
               {
-                title: 'Aplikasi Todo',
-                desc: 'Aplikasi manajemen tugas dengan React dan localStorage untuk menyimpan data tugas.',
+                title: 'Todo App',
+                desc: 'Todo task management app with React and localStorage for storing task data.',
                 img: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
                 tech: ['React', 'CSS', 'localStorage']
               },
               {
-                title: 'Bot Analisis Teks',
-                desc: 'Bot Python untuk menganalisis sentimen dari data Twitter menggunakan NLP.',
+                title: 'Text Analysis Bot',
+                desc: 'Python bot for analyzing sentiment from Twitter data using NLP.',
                 img: 'linear-gradient(135deg, #0ea5e9, #8b5cf6)',
                 tech: ['Python', 'NLTK', 'Twitter API']
               },
               {
-                title: 'Dokumentasi Bug',
-                desc: 'Dokumentasi proses bug hunting dan solusi keamanan dari berbagai temuan.',
+                title: 'Bug Documentation',
+                desc: 'Documentation of the bug hunting process and security solutions from various findings.',
                 img: 'linear-gradient(135deg, #0f766e, #0d9488)',
                 tech: ['Markdown', 'GitHub', 'Security']
               }
@@ -465,7 +466,7 @@ export default function Home() {
                 <Card className="h-100 shadow-sm border-subtle">
                   <div className="project-img" style={{ background: item.img }}>
                     <div className="p-3 text-white position-relative" style={{ zIndex: 2 }}>
-                      <span className="badge bg-dark">Proyek {index + 1}</span>
+                      <span className="badge bg-dark">Project {index + 1}</span>
                     </div>
                   </div>
                   <Card.Body>
@@ -493,7 +494,7 @@ export default function Home() {
           
           <div className="text-center mt-4">
             <Link href="https://github.com/yourusername" className="link-accent" target="_blank" rel="noopener noreferrer">
-              Lihat lebih banyak proyek di GitHub <FaArrowRight className="ms-1" size={12} />
+              View more projects on GitHub <FaArrowRight className="ms-1" size={12} />
             </Link>
           </div>
         </Container>
@@ -502,83 +503,254 @@ export default function Home() {
       {/* Certificates Section */}
       <section id="certificates" className="section-fade">
         <Container>
-          <h2 className="section-title">Sertifikat</h2>
-          <p className="section-subtitle">Pencapaian dan penghargaan resmi yang telah saya dapatkan</p>
+          <h2 className="section-title">Certificates</h2>
+          <p className="section-subtitle">Official achievements and recognitions I have obtained</p>
           
-          <Carousel indicators={true} className="certificate-carousel py-3">
+          <Carousel 
+            indicators={true} 
+            className="certificate-carousel py-3"
+            interval={5000}
+            controls={true}
+            pause="hover"
+          >
             {[
               {
-                title: 'Web Development Fundamentals',
-                org: 'Dicoding Indonesia',
-                date: 'Desember 2023',
-                desc: 'Menguasai dasar-dasar pengembangan web modern, termasuk HTML, CSS, JavaScript, dan responsive design.',
+                title: '3rd Place in Journalism Competition',
+                org: 'PUSPRESNAS',
+                date: 'May 2023',
+                desc: '3rd place in the Journalism Competition at Rokan Hulu Regency level.',
                 bgColor: 'var(--accent)',
-                badgeColor: 'rgba(14, 165, 233, 0.8)'
+                badgeColor: 'var(--accent-hover)',
+                icon: <FaCode className="cert-icon" />,
+                skills: ['Journalism', 'Writing', 'Communication'],
+                image: '/images/certificates/cert1.jpg'
               },
               {
-                title: 'Cyber Security Essential',
-                org: 'Siber Corner',
-                date: 'Januari 2024',
-                desc: 'Memahami dasar-dasar keamanan siber, termasuk metode serangan umum dan teknik pertahanan.',
+                title: '3rd Place in Short Film Competition',
+                org: 'PUSPRESNAS',
+                date: 'May 2024',
+                desc: '3rd place in the Short Film Competition at Rokan Hulu Regency level.',
                 bgColor: 'var(--secondary-accent)',
-                badgeColor: 'rgba(139, 92, 246, 0.8)'
+                badgeColor: 'var(--secondary-accent)',
+                icon: <FaShieldAlt className="cert-icon" />,
+                skills: ['Film Making', 'Storytelling', 'Editing'],
+                image: '/images/certificates/cert2.jpg'
               },
               {
-                title: 'AI Prompt Engineering',
-                org: 'DeepLearning.AI',
-                date: 'Februari 2024',
-                desc: 'Merancang prompt AI yang efektif untuk mengoptimalkan output dari model bahasa besar (LLM).',
-                bgColor: '#0f766e',
-                badgeColor: 'rgba(15, 118, 110, 0.8)'
+                title: '3rd Place in OSN Informatics',
+                org: 'PUSPRESNAS',
+                date: 'May 2024',
+                desc: '3rd place in the National Science Olympiad (Informatics) at Rokan Hulu Regency level.',
+                bgColor: 'var(--accent)',
+                badgeColor: 'var(--accent-hover)',
+                icon: <FaBrain className="cert-icon" />,
+                skills: ['Programming', 'Algorithms', 'Problem Solving'],
+                image: '/images/certificates/cert3.jpg'
+              },
+              {
+                title: 'Finalist in Indonesian Debate Competition',
+                org: 'PUSPRESNAS',
+                date: 'September 2024',
+                desc: 'Finalist in the Indonesian Debate Competition at Riau Provincial level.',
+                bgColor: 'var(--secondary-accent)',
+                badgeColor: 'var(--secondary-accent)',
+                icon: <FaShieldAlt className="cert-icon" />,
+                skills: ['Public Speaking', 'Argumentation', 'Critical Thinking'],
+                image: '/images/certificates/cert4.jpg'
+              },
+              {
+                title: 'Zero to Hero Security Engineer',
+                org: 'Siber Corner',
+                date: 'October 13, 2023',
+                desc: 'Comprehensive training on the basics of cyber security and Security Engineering techniques.',
+                bgColor: 'var(--accent)',
+                badgeColor: 'var(--accent-hover)',
+                icon: <FaShieldAlt className="cert-icon" />,
+                skills: ['Network Security', 'Penetration Testing', 'Vulnerability Analysis'],
+                image: '/images/certificates/cert5.jpg'
+              },
+              {
+                title: 'Geospatial Competition',
+                org: 'Badan Informasi Geospasial (BIG)',
+                date: 'October 19, 2023',
+                desc: 'National Geospatial Competition for high school students. Participated in mapping exercises, geographic information systems (GIS), and spatial data analysis.',
+                bgColor: 'var(--secondary-accent)',
+                badgeColor: 'var(--secondary-accent)',
+                icon: <FaLaptopCode className="cert-icon" />,
+                skills: ['Mapping', 'GIS', 'Spatial Analysis'],
+                image: '/images/certificates/cert6.jpg'
               }
             ].map((cert, index) => (
               <Carousel.Item key={index}>
                 <Row className="justify-content-center">
                   <Col lg={10} md={10}>
-                    <Card className="shadow-sm border-subtle overflow-hidden">
-                      <div className="p-4 p-md-5">
-                        <Row className="align-items-center mb-4">
-                          <Col md={4} className="text-center mb-4 mb-md-0">
-                            <div className="p-3 mx-auto rounded-circle d-flex align-items-center justify-content-center" 
-                              style={{ 
-                                width: '100px', 
-                                height: '100px', 
-                                background: cert.bgColor
-                              }}>
-                              <span className="h1 text-white mb-0">{index + 1}</span>
+                    <Card className="shadow-sm border-subtle overflow-hidden certificate-card">
+                      <Card.Body className="p-0">
+                        <Row className="g-0">
+                          <Col md={5} className="cert-thumbnail-col position-relative">
+                            <div className="cert-thumbnail-wrapper position-relative h-100">
+                              {/* Certificate thumbnail background */}
+                              <div className="cert-thumbnail-bg h-100" 
+                                style={{
+                                  background: `var(--card-bg)`,
+                                  position: 'absolute',
+                                  width: '100%',
+                                  zIndex: 1
+                                }}>
+                              </div>
+                              
+                              {/* Certificate thumbnail image */}
+                              <div className="cert-thumbnail-image h-100 w-100 position-relative" style={{ zIndex: 2 }}>
+                                <div className="position-relative h-100 w-100 d-flex align-items-center justify-content-center">
+                                  {/* Clean, simple certificate display - fullsize without padding */}
+                                  <div className="cert-image-container" 
+                                    style={{
+                                      width: '100%',
+                                      height: '100%',
+                                      position: 'relative',
+                                      overflow: 'hidden',
+                                      boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                                      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                      cursor: 'pointer'
+                                    }}
+                                    onClick={() => window.open(cert.image, '_blank')}
+                                    onMouseOver={(e) => {
+                                      e.currentTarget.style.transform = 'translateY(-5px)';
+                                      e.currentTarget.style.boxShadow = '0 12px 20px rgba(0,0,0,0.15)';
+                                    }}
+                                    onMouseOut={(e) => {
+                                      e.currentTarget.style.transform = 'translateY(0)';
+                                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                                    }}
+                                  >
+                                    
+                                    {/* Certificate number badge */}
+                                    <div style={{
+                                      position: 'absolute',
+                                      top: '5px',
+                                      right: '5px',
+                                      background: '#1f2937',
+                                      color: 'white',
+                                      padding: '2px 6px',
+                                      borderRadius: '3px',
+                                      fontSize: '10px',
+                                      fontWeight: 'bold',
+                                      zIndex: 3,
+                                      opacity: 0.8
+                                    }}>
+                                      #{index + 1}
+                                    </div>
+                                    
+                                    {/* Certificate image - full size, cover mode */}
+                                    <div style={{
+                                      width: '100%',
+                                      height: '100%',
+                                      backgroundImage: `url(${cert.image})`,
+                                      backgroundSize: 'cover',
+                                      backgroundPosition: 'center',
+                                      backgroundRepeat: 'no-repeat'
+                                    }}>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              {/* Certificate number badge */}
+                              <div className="position-absolute cert-number-badge" 
+                                style={{
+                                  top: '10px',
+                                  right: '10px',
+                                  background: cert.bgColor,
+                                  color: 'var(--text-bright)',
+                                  padding: '4px 8px',
+                                  borderRadius: '4px',
+                                  fontSize: '12px',
+                                  fontWeight: 'bold',
+                                  zIndex: 3
+                                }}>
+                                #{index + 1}
+                              </div>
+                              
+                              {/* Hover overlay with view text - make the overlay itself clickable */}
+                              <div 
+                                className="cert-hover-overlay" 
+                                style={{
+                                  position: 'absolute',
+                                  top: 0,
+                                  left: 0,
+                                  width: '100%',
+                                  height: '100%',
+                                  background: 'rgba(0,0,0,0.4)',
+                                  opacity: 0,
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  transition: 'opacity 0.3s ease',
+                                  zIndex: 2,
+                                  cursor: 'pointer'
+                                }}
+                                onClick={(e) => {
+                                  e.stopPropagation(); // Prevent triggering parent click event twice
+                                  window.open(cert.image, '_blank');
+                                }}
+                                onMouseOver={(e) => {
+                                  e.currentTarget.style.opacity = '1';
+                                }}
+                                onMouseOut={(e) => {
+                                  e.currentTarget.style.opacity = '0';
+                                }}
+                              >
+                                <div style={{
+                                  color: 'white',
+                                  fontSize: '0.9rem',
+                                  fontWeight: '500',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '5px'
+                                }}>
+                                  <FaEye size={14} /> View Full Certificate
+                                </div>
+                              </div>
                             </div>
                           </Col>
-                          <Col md={8}>
-                            <h3 className="h4 text-bright mb-2">{cert.title}</h3>
-                            <p className="text-secondary small mb-2">{cert.org} • {cert.date}</p>
-                            <p className="text-light mb-3">{cert.desc}</p>
+                          
+                          <Col md={7} className="py-4 px-4">
+                            {/* Organization and date */}
+                            <div className="d-flex justify-content-between align-items-center mb-2">
+                              <span className="fw-medium" style={{ color: cert.bgColor }}>{cert.org}</span>
+                              <span className="cert-date badge" style={{ 
+                                background: 'var(--bg-card-hover)', 
+                                color: 'var(--text-light)' 
+                              }}>
+                                {cert.date}
+                              </span>
+                            </div>
+                            
+                            {/* Certificate title */}
+                            <h3 className="fs-4 fw-bold mb-3">{cert.title}</h3>
+                            
+                            {/* Certificate description - simplified without label */}
+                            <p className="mb-4">{cert.desc}</p>
+                            
+                            {/* Simple divider */}
+                            <div style={{ height: '1px', background: `var(--border-subtle)`, marginBottom: '16px' }}></div>
+                            
+                            {/* Skills list - simplified without label */}
+                            <div className="d-flex flex-wrap gap-2">
+                              {cert.skills.map((skill, i) => (
+                                <span key={i} className="badge border-0" 
+                                  style={{ 
+                                    fontWeight: '400',
+                                    background: 'var(--bg-card-hover)',
+                                    color: 'var(--text-light)'
+                                  }}>
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           </Col>
                         </Row>
-                        <div className="certificate-image mt-4 rounded overflow-hidden">
-                          <div 
-                            className="d-flex justify-content-center align-items-center p-4 rounded certificate-preview" 
-                            style={{ 
-                              background: `linear-gradient(135deg, ${cert.bgColor}, ${cert.badgeColor})`,
-                              height: '200px',
-                              position: 'relative',
-                              cursor: 'pointer',
-                              transition: 'all 0.3s ease'
-                            }}
-                            onClick={() => window.open('#', '_blank')}
-                          >
-                            <div className="position-absolute top-0 end-0 m-2">
-                              <span className="badge" style={{backgroundColor: cert.badgeColor}}>Sertifikat</span>
-                            </div>
-                            <div className="text-center">
-                              <div className="mb-2">
-                                <FaShieldAlt size={40} className="text-white opacity-75" />
-                              </div>
-                              <h4 className="text-white mb-0">{cert.title}</h4>
-                              <p className="text-white opacity-75 small mb-0">Klik untuk melihat sertifikat lengkap</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      </Card.Body>
                     </Card>
                   </Col>
                 </Row>
@@ -598,15 +770,15 @@ export default function Home() {
                 backdropFilter: 'blur(10px)',
                 borderRadius: 'var(--border-radius-lg)'
               }}>
-                <h2 className="h3 mb-3">Tertarik untuk Berkolaborasi?</h2>
-                <p className="text-secondary mb-4">Saya terbuka untuk kesempatan magang, kerja paruh waktu, dan kolaborasi proyek</p>
+                <h2 className="h3 mb-3">Interested in Collaboration?</h2>
+                <p className="text-secondary mb-4">I'm open to internship opportunities, part-time work, and project collaborations</p>
                 <div className="d-flex justify-content-center gap-3">
                   <Button variant="primary" size="lg" href="mailto:reyhan@example.com">
                     <FaEnvelope className="me-2" />
-                    Hubungi Saya
+                    Contact Me
                   </Button>
                   <Button variant="outline-light" size="lg" href="/jurnal">
-                    Lihat Jurnal Bug Hunting
+                    View Bug Hunting Journal
                   </Button>
                 </div>
               </Card>

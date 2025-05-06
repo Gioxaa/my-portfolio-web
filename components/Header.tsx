@@ -56,22 +56,22 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-lg-center">
             <Link href="/" className={`nav-link ${isActive('/')}`}>
-              Beranda
+              Home
             </Link>
             <Link href="/#about" className={`nav-link ${isActiveWithHash('/#about')}`}>
-              Tentang Saya
+              About Me
             </Link>
             <Link href="/#skills" className={`nav-link ${isActiveWithHash('/#skills')}`}>
-              Keahlian
+              Skills
             </Link>
             <Link href="/#projects" className={`nav-link ${isActiveWithHash('/#projects')}`}>
-              Karya & Proyek
+              Works & Projects
             </Link>
             <Link href="/#certificates" className={`nav-link ${isActiveWithHash('/#certificates')}`}>
-              Sertifikat
+              Certificates
             </Link>
             <Link href="/jurnal" className={`nav-link ${isActive('/jurnal')}`}>
-              Jurnal Bug Hunting
+              Bug Hunting Journal
             </Link>
             <a href="/files/cv-muhammad-reyhan.pdf" download className="ms-lg-3 mt-3 mt-lg-0 resume-download-link">
               <Button variant="outline-light" size="sm" className="resume-btn">

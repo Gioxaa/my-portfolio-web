@@ -6,7 +6,7 @@ import { FaHome, FaSearch } from 'react-icons/fa';
 
 export default function Custom404() {
   return (
-    <Layout title="404 - Halaman Tidak Ditemukan | Muhammad Reyhan">
+    <Layout title="404 - Page Not Found | Muhammad Reyhan">
       <Container className="py-5 text-center">
         <Row className="justify-content-center">
           <Col md={10} lg={8} className="py-5">
@@ -21,16 +21,16 @@ export default function Custom404() {
                 textShadow: '0 10px 30px rgba(6, 182, 212, 0.3)'
               }}>404</h1>
               
-              <h2 className="mb-4 h3">Halaman Tidak Ditemukan</h2>
+              <h2 className="mb-4 h3">Page Not Found</h2>
               <p className="lead mb-5 text-secondary mx-auto" style={{ maxWidth: '500px' }}>
-                Maaf, halaman yang Anda cari tidak tersedia atau telah dipindahkan. 
-                Silahkan kembali ke halaman beranda.
+                Sorry, the page you are looking for is not available or has been moved.
+                Please return to the homepage.
               </p>
               
               <div className="d-flex justify-content-center gap-3">
                 <Link href="/" className="d-inline-block">
                   <Button variant="primary" size="lg" className="px-4 py-2">
-                    <FaHome className="me-2" /> Kembali ke Beranda
+                    <FaHome className="me-2" /> Back to Home
                   </Button>
                 </Link>
               </div>

@@ -14,12 +14,12 @@ const Footer = () => {
   ];
   
   const menuLinks = [
-    { name: 'Beranda', url: '/' },
-    { name: 'Tentang Saya', url: '/#about' },
-    { name: 'Keahlian', url: '/#skills' },
-    { name: 'Karya & Proyek', url: '/#projects' },
-    { name: 'Sertifikat', url: '/#certificates' },
-    { name: 'Jurnal Bug Hunting', url: '/jurnal' }
+    { name: 'Home', url: '/' },
+    { name: 'About Me', url: '/#about' },
+    { name: 'Skills', url: '/#skills' },
+    { name: 'Works & Projects', url: '/#projects' },
+    { name: 'Certificates', url: '/#certificates' },
+    { name: 'Bug Hunting Journal', url: '/jurnal' }
   ];
   
   return (
@@ -50,9 +50,9 @@ const Footer = () => {
           <Col lg={5} md={6} className="mb-4 mb-md-0">
             <h3 className="h4 mb-4">Muhammad Reyhan</h3>
             <p className="text-secondary mb-4">
-              Lulusan SMA yang membangun karier teknologi secara mandiri
-              dengan kemampuan di bidang pemrograman, AI prompt engineering,
-              dan cybersecurity bug bounty.
+              Self-taught high school graduate building a career in technology
+              with skills in programming, AI prompt engineering,
+              and cybersecurity bug bounty.
             </p>
             <div className="d-flex social-links gap-3 mb-4">
               {socialLinks.map((link, index) => (
@@ -79,10 +79,10 @@ const Footer = () => {
           </Col>
           
           <Col lg={4} md={12}>
-            <h4 className="h5 mb-4">Tentang Website</h4>
+            <h4 className="h5 mb-4">About Website</h4>
             <p className="text-secondary">
-              Website portofolio ini dibuat menggunakan Next.js dan Bootstrap 5
-              dengan tujuan untuk menampilkan karya dan keahlian saya di bidang teknologi.
+              This portfolio website was created using Next.js and Bootstrap 5
+              to showcase my skills and projects in technology.
             </p>
           </Col>
         </Row>
@@ -92,10 +92,10 @@ const Footer = () => {
         <Row className="text-center">
           <Col>
             <p className="text-secondary mb-2">
-              &copy; {currentYear} Muhammad Reyhan. Semua hak cipta dilindungi.
+              &copy; {currentYear} Muhammad Reyhan. All rights reserved.
             </p>
             <p className="small text-secondary">
-              Dibuat dengan <FaHeart className="text-danger mx-1" /> di Rokan Hulu, Riau
+              Made with <FaHeart className="text-danger mx-1" /> in Rokan Hulu, Riau
             </p>
           </Col>
         </Row>

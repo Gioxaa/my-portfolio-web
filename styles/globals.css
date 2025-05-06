@@ -773,6 +773,16 @@ ul li {
     background-color: rgba(14, 165, 233, 0.2);
     transform: translateY(-2px);
   }
+
+  .cert-thumbnail-col {
+    min-height: 220px;
+    border-right: none;
+    border-bottom: var(--border-subtle);
+  }
+  
+  .cert-image-placeholder {
+    height: 140px !important;
+  }
 }
 
 /* Mobile-first for some components */
@@ -928,4 +938,191 @@ body::before {
   background-color: rgba(14, 165, 233, 0.2) !important;
   color: var(--text-bright) !important;
   box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2);
+}
+
+/* Enhanced Certificate Styles */
+.certificate-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px !important;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: var(--border-subtle) !important;
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+  border-color: var(--accent) !important;
+}
+
+.cert-icon {
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.cert-thumbnail-col {
+  min-height: 280px;
+  border-right: var(--border-subtle);
+  background-color: var(--card-bg);
+}
+
+.cert-image-container {
+  transition: transform 0.3s ease;
+  background-color: white;
+  border: var(--border-subtle);
+}
+
+.cert-image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
+}
+
+.cert-actual-image {
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+.cert-actual-image:hover {
+  opacity: 1;
+}
+
+.cert-thumbnail-wrapper {
+  cursor: pointer;
+  position: relative;
+}
+
+.cert-view-btn {
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+  border-width: 1px !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.cert-view-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2) !important;
+  filter: brightness(1.05);
+}
+
+.certificate-carousel {
+  padding-bottom: 3rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 0 5px;
+  opacity: 0.5;
+  background-color: var(--accent) !important;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
+}
+
+@media (max-width: 768px) {
+  .cert-thumbnail-col {
+    min-height: 220px;
+    border-right: none;
+    border-bottom: var(--border-subtle);
+  }
+  
+  .cert-image-placeholder {
+    height: 140px !important;
+  }
+}
+
+/* Add certificate placeholder styles at the end of the file */
+.certificate-placeholder {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.certificate-placeholder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+}
+
+.certificate-placeholder.alt::before {
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+}
+
+.certificate-placeholder-content {
+  z-index: 1;
+  padding-top: 30px;
+}
+
+.certificate-placeholder-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.certificate-placeholder-org {
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #0ea5e9;
+}
+
+.certificate-placeholder.alt .certificate-placeholder-org {
+  color: #8b5cf6;
+}
+
+.certificate-placeholder-date {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 15px;
+}
+
+.certificate-placeholder-verified {
+  display: inline-block;
+  background: #10b981;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Add styles for certificate thumbnails at the end of the file */
+.cert-thumbnail-wrapper {
+  position: relative;
+}
+
+.cert-thumbnail-wrapper[style*="url"] .camera-icon-fallback {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cert-thumbnail-wrapper div[style*="url"] {
+  background-color: white;
+}
+
+.cert-thumbnail-wrapper div[style*="url(null)"] .camera-icon-fallback,
+.cert-thumbnail-wrapper div[style*="url('')"] .camera-icon-fallback,
+.cert-thumbnail-wrapper div[style*='url("")'] .camera-icon-fallback,
+.cert-thumbnail-wrapper div[style*="error"] .camera-icon-fallback {
+  opacity: 1;
 } 
