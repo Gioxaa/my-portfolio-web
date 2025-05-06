@@ -42,36 +42,36 @@ const Header = () => {
     <Navbar 
       expand="lg" 
       variant="dark" 
-      className={`py-3 transition-all ${scrolled ? 'scrolled shadow-sm' : ''}`} 
+      className={`py-2 transition-all ${scrolled ? 'scrolled shadow-sm' : ''}`} 
       fixed="top"
     >
       <Container>
-        <Link href="/" passHref legacyBehavior>
-          <Navbar.Brand className="fw-bold d-flex align-items-center">
-            <FaCode className="me-2" />
-            <span>Muhammad Reyhan</span>
-          </Navbar.Brand>
+        <Link href="/" className="navbar-brand fw-bold d-flex align-items-center">
+          <span className="logo-icon me-2 d-flex justify-content-center align-items-center">
+            <FaCode />
+          </span>
+          <span>Muhammad Reyhan</span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Link href="/" passHref legacyBehavior>
-              <Nav.Link className={isActive('/')}>Beranda</Nav.Link>
+            <Link href="/" className={`nav-link ${isActive('/')}`}>
+              Beranda
             </Link>
-            <Link href="/#about" passHref legacyBehavior>
-              <Nav.Link className={isActiveWithHash('/#about')}>Tentang Saya</Nav.Link>
+            <Link href="/#about" className={`nav-link ${isActiveWithHash('/#about')}`}>
+              Tentang Saya
             </Link>
-            <Link href="/#skills" passHref legacyBehavior>
-              <Nav.Link className={isActiveWithHash('/#skills')}>Keahlian</Nav.Link>
+            <Link href="/#skills" className={`nav-link ${isActiveWithHash('/#skills')}`}>
+              Keahlian
             </Link>
-            <Link href="/#projects" passHref legacyBehavior>
-              <Nav.Link className={isActiveWithHash('/#projects')}>Karya & Proyek</Nav.Link>
+            <Link href="/#projects" className={`nav-link ${isActiveWithHash('/#projects')}`}>
+              Karya & Proyek
             </Link>
-            <Link href="/#certificates" passHref legacyBehavior>
-              <Nav.Link className={isActiveWithHash('/#certificates')}>Sertifikat</Nav.Link>
+            <Link href="/#certificates" className={`nav-link ${isActiveWithHash('/#certificates')}`}>
+              Sertifikat
             </Link>
-            <Link href="/jurnal" passHref legacyBehavior>
-              <Nav.Link className={isActive('/jurnal')}>Jurnal Bug Hunting</Nav.Link>
+            <Link href="/jurnal" className={`nav-link ${isActive('/jurnal')}`}>
+              Jurnal Bug Hunting
             </Link>
           </Nav>
         </Navbar.Collapse>

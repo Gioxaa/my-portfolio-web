@@ -70,8 +70,8 @@ const Footer = () => {
             <ul className="list-unstyled footer-links">
               {menuLinks.map((link, index) => (
                 <li key={index} className="mb-2">
-                  <Link href={link.url} passHref legacyBehavior>
-                    <a>{link.name}</a>
+                  <Link href={link.url} className="footer-link">
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -100,59 +100,6 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
-      
-      <style jsx>{`
-        .social-link {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: var(--card-bg);
-          color: var(--text-light);
-          font-size: 1.2rem;
-          transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-          transform: translateY(-3px);
-          background: var(--accent-gradient);
-          color: white;
-        }
-        
-        .footer-links a {
-          display: inline-block;
-          color: var(--text-secondary);
-          transition: all 0.2s ease;
-          position: relative;
-          padding-left: 15px;
-        }
-        
-        .footer-links a:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: var(--accent);
-          opacity: 0.6;
-          transition: all 0.2s ease;
-        }
-        
-        .footer-links a:hover {
-          color: var(--accent);
-          transform: translateX(3px);
-        }
-        
-        .footer-links a:hover:before {
-          opacity: 1;
-          background: var(--accent-gradient);
-        }
-      `}</style>
     </footer>
   );
 };

@@ -63,14 +63,14 @@ export default function Home() {
               <div className="hero-image">
                 {/* Profile image with gradient circle border */}
                 <div className="position-relative mx-auto" style={{ width: '280px', height: '280px' }}>
-                  <div className="position-absolute w-100 h-100 rounded-circle" 
+                  <div className="position-absolute w-100 h-100 rounded-circle hero-circle-border" 
                        style={{ 
                          background: 'var(--accent-gradient)',
                          animation: 'spin 15s linear infinite',
-                         opacity: '0.8'
+                         opacity: '0.7'
                        }}>
                   </div>
-                  <div className="position-absolute" 
+                  <div className="position-absolute hero-circle-inner" 
                        style={{ 
                          width: '260px', 
                          height: '260px', 
@@ -480,11 +480,8 @@ export default function Home() {
                     </div>
                   </Card.Body>
                   <Card.Footer className="bg-transparent border-0 pt-0">
-                    <div className="d-flex">
-                      <Button variant="outline-primary" size="sm" className="me-2">
-                        Demo <FaArrowRight className="ms-1" size={12} />
-                      </Button>
-                      <Button variant="outline-secondary" size="sm">
+                    <div className="d-flex justify-content-center mt-2">
+                      <Button variant="outline-primary" size="sm">
                         GitHub <FaGithub className="ms-1" size={12} />
                       </Button>
                     </div>
