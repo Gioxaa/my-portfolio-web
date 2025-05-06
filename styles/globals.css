@@ -1,0 +1,111 @@
+:root {
+  --bg-dark: #1e1e2f;
+  --text-light: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --accent: #4fc6b8; /* Teal/Turquoise */
+  --accent-hover: #3aafa9;
+  --secondary-accent: #845ef7; /* Purple */
+  --card-bg: #2a2a40;
+  --header-bg: #141428;
+}
+
+html,
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-bg);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Override some Bootstrap styles */
+.navbar {
+  background-color: var(--header-bg) !important;
+}
+
+.card {
+  background-color: var(--card-bg) !important;
+  border: none !important;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.btn-primary {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+.progress-bar {
+  background-color: var(--accent) !important;
+}
+
+.section-title {
+  color: var(--accent);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  background-color: var(--accent);
+  bottom: -10px;
+  left: 0;
+} 
