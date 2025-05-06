@@ -19,10 +19,13 @@ const Layout = ({
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
       </Head>
       <Header />
-      <main className="container pt-5 pb-5">
+      <main className="container-fluid px-md-5 pt-5 pb-5">
         {children}
       </main>
       <Footer />
