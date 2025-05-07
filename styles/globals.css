@@ -1,26 +1,30 @@
 :root {
-  --bg-dark: #0f172a; /* Dark blue background */
-  --bg-card: #1e293b; /* Slightly lighter blue for cards */
-  --bg-card-hover: #263548; /* Even lighter for hover states */
-  --text-light: #f1f5f9; /* Light text color - slightly dimmed */
-  --text-muted: #94a3b8; /* Secondary text color */
-  --text-bright: #ffffff; /* Bright text for important elements */
+  --bg-dark: #0c1526; /* Darker background for better contrast */
+  --bg-card: #1a2639; /* Darker card background */
+  --bg-card-hover: #29374f; /* Higher contrast for hover states */
+  --text-light: #f8fafc; /* Brighter text for better readability */
+  --text-muted: #cbd5e1; /* Lighter muted text for better contrast */
+  --text-bright: #ffffff; /* Pure white for most important elements */
   --accent: #0ea5e9; /* Blue accent color - slightly adjusted */
   --accent-hover: #0284c7;
   --secondary-accent: #8b5cf6; /* Violet as secondary accent */
   --accent-gradient: linear-gradient(120deg, var(--accent), var(--secondary-accent));
-  --subtle-gradient: linear-gradient(to right, rgba(14, 165, 233, 0.15), rgba(139, 92, 246, 0.15));
-  --card-bg: #1e293b;
-  --header-bg: #0f172a;
+  --subtle-gradient: linear-gradient(to right, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.2));
+  --card-bg: #1a2639;
+  --header-bg: #0c1526;
   --border-radius: 10px;
   --border-radius-lg: 16px;
   --border-radius-sm: 6px;
-  --box-shadow: 0 4px 20px -5px rgba(2, 12, 27, 0.7);
+  --box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.5);
   --transition-normal: all 0.3s ease;
-  --border-subtle: 1px solid rgba(148, 163, 184, 0.1);
+  --border-subtle: 1px solid rgba(148, 163, 184, 0.15);
   --section-spacing: 4rem; /* New spacing variable for section gaps */
   --card-padding: 1.75rem; /* Consistent card padding */
   --element-spacing: 1.5rem; /* Consistent spacing between elements */
+  --focus-ring: 0 0 0 3px rgba(14, 165, 233, 0.5);
+  --error: #ef4444;
+  --success: #10b981;
+  --warning: #f59e0b;
 }
 
 html,
@@ -256,57 +260,47 @@ section:last-of-type::after {
 }
 
 .btn {
-  font-weight: 500 !important;
-  padding: 0.6rem 1.5rem !important;
-  border-radius: 30px !important;
-  transition: var(--transition-normal) !important;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-normal);
   position: relative;
   overflow: hidden;
-  letter-spacing: 0.3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-}
-
-.btn:hover::before {
-  transform: translateX(0);
+.btn:focus {
+  box-shadow: var(--focus-ring);
 }
 
 .btn-primary {
   background: var(--accent) !important;
-  border: none !important;
-  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-  color: var(--text-bright) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px 20px rgba(6, 182, 212, 0.4) !important;
   background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4);
 }
 
 .btn-outline-light {
-  border-radius: 30px !important;
-  font-weight: 500 !important;
-  transition: var(--transition-normal) !important;
-  color: var(--text-light) !important;
-  border-color: var(--text-muted) !important;
+  color: var(--text-bright) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  font-weight: 500;
 }
 
 .btn-outline-light:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent) !important;
-  background-color: transparent !important;
-  color: var(--text-bright) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .btn-outline-secondary {
@@ -365,6 +359,7 @@ section:last-of-type::after {
 /* Text colors */
 .text-secondary {
   color: var(--text-muted) !important;
+  opacity: 0.95 !important; /* Improved opacity for better contrast */
 }
 
 .text-light {
@@ -373,6 +368,7 @@ section:last-of-type::after {
 
 .text-bright {
   color: var(--text-bright) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow for better readability */
 }
 
 .text-accent {

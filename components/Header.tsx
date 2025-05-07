@@ -50,7 +50,7 @@ const Header = () => {
           <span className="logo-icon me-2 d-flex justify-content-center align-items-center">
             <FaCode />
           </span>
-          <span>Muhammad Reyhan</span>
+          <span> Reyhan Portfolio</span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
