@@ -438,28 +438,32 @@ export default function Home() {
           <Row>
             {[
               {
-                title: 'Personal Portfolio',
-                desc: 'Personal portfolio website built with Next.js and Bootstrap, showcasing skills and projects.',
+                title: 'DiscordBot Community v2',
+                desc: 'A modular Discord bot for community servers, featuring command handling, event management, and utility functions. Built for easy customization and extension.',
                 img: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
-                tech: ['Next.js', 'Bootstrap', 'React']
+                tech: ['Node.js', 'discord.js'],
+                link: 'https://github.com/Gioxaa/discordbot-community-v2'
               },
               {
-                title: 'Todo App',
-                desc: 'Todo task management app with React and localStorage for storing task data.',
+                title: 'Discord SelfBot MessageScheduler',
+                desc: 'A self-bot for Discord that automatically sends scheduled messages to specified channels with random delays. Supports multi-account management and webhook logging.',
                 img: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
-                tech: ['React', 'CSS', 'localStorage']
+                tech: ['Node.js', 'discord.js-selfbot-v13', 'axios'],
+                link: 'https://github.com/Gioxaa/Discord-SelfBot-MessageScheduler'
               },
               {
-                title: 'Text Analysis Bot',
-                desc: 'Python bot for analyzing sentiment from Twitter data using NLP.',
+                title: 'Growtopia Online Checker Webhook',
+                desc: 'A Python-based webhook tool to check the online status of Growtopia servers and send notifications. Useful for monitoring server uptime and automating alerts.',
                 img: 'linear-gradient(135deg, #0ea5e9, #8b5cf6)',
-                tech: ['Python', 'NLTK', 'Twitter API']
+                tech: ['Python', 'Webhooks'],
+                link: 'https://github.com/Gioxaa/growtopia-online-checker-webhook'
               },
               {
-                title: 'Bug Documentation',
-                desc: 'Documentation of the bug hunting process and security solutions from various findings.',
-                img: 'linear-gradient(135deg, #0f766e, #0d9488)',
-                tech: ['Markdown', 'GitHub', 'Security']
+                title: 'Growtopia Online Checker Webhook',
+                desc: 'A Python-based webhook tool to check the online status of Growtopia servers and send notifications. Useful for monitoring server uptime and automating alerts.',
+                img: 'linear-gradient(135deg, #0ea5e9, #8b5cf6)',
+                tech: ['Python', 'Webhooks'],
+                link: 'https://github.com/Gioxaa/growtopia-online-checker-webhook'
               }
             ].map((item, index) => (
               <Col lg={3} md={6} className="mb-4" key={index}>
@@ -482,7 +486,7 @@ export default function Home() {
                   </Card.Body>
                   <Card.Footer className="bg-transparent border-0 pt-0">
                     <div className="d-flex justify-content-center mt-2">
-                      <Button variant="outline-primary" size="sm" className="btn-touch-effect">
+                      <Button variant="outline-primary" size="sm" className="btn-touch-effect" as="a" href={item.link} target="_blank" rel="noopener noreferrer">
                         GitHub <FaGithub className="ms-1" size={12} />
                       </Button>
                     </div>
