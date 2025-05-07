@@ -20,7 +20,7 @@ const JournalItem = ({
   index: number
 }) => (
   <div className="journal-item">
-    <Card className="shadow-sm border-0 mb-4">
+    <Card className="shadow-sm border-0 mb-4 journal-card-static">
       <Card.Body>
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h3 className="h5 mb-0 fw-bold text-bright">{title}</h3>
@@ -202,6 +202,33 @@ export default function BugHuntingJournal() {
           borderRadius: '50%'
         }}></div>
       </section>
+
+      {/* Add static card styling */}
+      <style jsx global>{`
+        /* Static card styles for journal entries */
+        .journal-card-static {
+          background-color: var(--bg-card);
+          border: 1px solid rgba(255, 255, 255, 0.08) !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+          transition: none !important;
+        }
+        
+        .journal-card-static:hover {
+          transform: none !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+          background-color: var(--bg-card) !important;
+        }
+        
+        /* Override any global card hover effects */
+        .shadow-sm.card.journal-card-static {
+          transition: none !important;
+        }
+        
+        .shadow-sm.card.journal-card-static:hover {
+          transform: none !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+      `}</style>
     </Layout>
   );
 } 
