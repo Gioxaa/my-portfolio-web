@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Layout from '@/components/Layout';
 import { Container, Row, Col, Button, Card, ProgressBar, Carousel } from 'react-bootstrap';
-import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera, FaChevronLeft, FaChevronRight, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaNpm, FaDatabase, FaAws, FaPython, FaUbuntu, FaServer, FaFileDownload } from 'react-icons/fa';
+import { SiMysql, SiMongodb, SiPostgresql } from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
 import CertificatePlaceholder from '@/components/CertificatePlaceholder';
@@ -195,14 +196,14 @@ export default function Home() {
                   <FaEnvelope className="me-2" />
                   Email
                 </Button>
-                <Button variant="outline-light" href="https://wa.me/6281234567890" className="btn-touch-effect">
-                  <FaWhatsapp className="me-2" />
-                  WhatsApp
-                </Button>
                 <Button variant="outline-light" href="https://github.com/yourusername" target="_blank" className="btn-touch-effect">
                   <FaGithub className="me-2" />
                   GitHub
                 </Button>
+                <a href="/files/cv-muhammad-reyhan.pdf" download className="btn btn-outline-primary btn-touch-effect">
+                  <FaFileDownload className="me-2" />
+                  Resume
+                </a>
               </div>
             </Col>
             <Col lg={6} className="text-center mt-5 mt-lg-0">
@@ -433,7 +434,7 @@ export default function Home() {
           <p className="section-subtitle">Technical abilities I've developed and continue to improve</p>
           
           <Row>
-            <Col lg={4} md={6} className="mb-4">
+            <Col lg={5} md={6} className="mb-4">
               <Card className="h-100 shadow-sm border-subtle">
                 <Card.Body className="d-flex flex-column">
                   <div className="text-center mb-3">
@@ -441,68 +442,91 @@ export default function Home() {
                     <h3 className="h4">Programming</h3>
                   </div>
                   <div className="mb-3 flex-grow-1">
-                    <div className="mb-4">
-                      <div className="d-flex justify-content-between align-items-center mb-2">
-                        <span className="fw-medium">Python</span>
-                        <span className="badge bg-dark">75%</span>
+                    <div className="tech-skills-container">
+                      <div className="tech-skills-grid">
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaHtml5 />
+                          </div>
+                          <div className="tech-skill-name">HTML5</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaCss3Alt />
+                          </div>
+                          <div className="tech-skill-name">CSS3</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaJs />
+                          </div>
+                          <div className="tech-skill-name">JavaScript</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaReact />
+                          </div>
+                          <div className="tech-skill-name">React</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaNodeJs />
+                          </div>
+                          <div className="tech-skill-name">Node.js</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaNpm />
+                          </div>
+                          <div className="tech-skill-name">npm</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <SiMysql />
+                          </div>
+                          <div className="tech-skill-name">MySQL</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <SiMongodb />
+                          </div>
+                          <div className="tech-skill-name">MongoDB</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaAws />
+                          </div>
+                          <div className="tech-skill-name">AWS</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaPython />
+                          </div>
+                          <div className="tech-skill-name">Python</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaUbuntu />
+                          </div>
+                          <div className="tech-skill-name">Ubuntu</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaServer />
+                          </div>
+                          <div className="tech-skill-name">Backend</div>
+                        </div>
                       </div>
-                      <ProgressBar now={75} className="mb-1" style={{ height: '6px' }} />
-                      <p className="text-secondary small mt-1">Data analysis, automation, web scraping</p>
                     </div>
-                    
-                    <div className="mb-4">
-                      <div className="d-flex justify-content-between align-items-center mb-2">
-                        <span className="fw-medium">JavaScript</span>
-                        <span className="badge bg-dark">70%</span>
-                      </div>
-                      <ProgressBar now={70} className="mb-1" style={{ height: '6px' }} />
-                      <p className="text-secondary small mt-1">Frontend development, React, Node.js</p>
-                    </div>
+                  </div>
+                  <div className="mt-3">
+                    <p className="small text-secondary">Proficient in multiple programming languages and frameworks with focus on web development. Experienced in both frontend and backend technologies with practical application in real projects.</p>
                   </div>
                 </Card.Body>
               </Card>
             </Col>
             
-            <Col lg={4} md={6} className="mb-4">
-              <Card className="h-100 shadow-sm border-subtle">
-                <Card.Body className="d-flex flex-column">
-                  <div className="text-center mb-3">
-                    <FaLaptopCode className="skill-icon mb-2" />
-                    <h3 className="h4">Frameworks</h3>
-                  </div>
-                  <div className="mb-3 flex-grow-1">
-                    <div className="mb-4">
-                      <div className="d-flex justify-content-between align-items-center mb-2">
-                        <span className="fw-medium">React.js</span>
-                        <span className="badge bg-dark">65%</span>
-                      </div>
-                      <ProgressBar now={65} className="mb-1" style={{ height: '6px' }} />
-                      <p className="text-secondary small mt-1">Components, hooks, state management</p>
-                    </div>
-                    
-                    <div className="mb-4">
-                      <div className="d-flex justify-content-between align-items-center mb-2">
-                        <span className="fw-medium">Next.js</span>
-                        <span className="badge bg-dark">60%</span>
-                      </div>
-                      <ProgressBar now={60} className="mb-1" style={{ height: '6px' }} />
-                      <p className="text-secondary small mt-1">SSR, routing, API routes</p>
-                    </div>
-                    
-                    <div className="mb-4">
-                      <div className="d-flex justify-content-between align-items-center mb-2">
-                        <span className="fw-medium">Bootstrap</span>
-                        <span className="badge bg-dark">80%</span>
-                      </div>
-                      <ProgressBar now={80} className="mb-1" style={{ height: '6px' }} />
-                      <p className="text-secondary small mt-1">Responsive design, components, customization</p>
-                    </div>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-            
-            <Col lg={4} md={12} className="mb-4">
+            <Col lg={7} md={6} className="mb-4">
               <Card className="h-100 shadow-sm border-subtle">
                 <Card.Body className="d-flex flex-column">
                   <div className="text-center mb-3">
@@ -510,16 +534,99 @@ export default function Home() {
                     <h3 className="h4">Cybersecurity</h3>
                   </div>
                   <div className="flex-grow-1">
-                    <div className="d-flex flex-wrap">
-                      {['SQL Injection', 'IDOR', 'File Upload Bypass', 'CSRF Token Reuse', 'SSRF', 'Predictive Hash', 'Error Disclosure'].map((skill) => (
+                    <div className="d-flex flex-wrap mb-3">
+                      {['SQL Injection', 'IDOR', 'File Upload Bypass', 'CSRF Token Reuse', 'SSRF', 'Predictive Hash', 'Error Disclosure', 'XSS Attack', 'Security Headers'].map((skill) => (
                         <span key={skill} className="skill-badge">
                           {skill}
                         </span>
                       ))}
                     </div>
                     
-                    <div className="mt-4">
-                      <p className="small text-secondary">I focus on web application security and ethical penetration testing. Following responsible disclosure principles when finding security vulnerabilities.</p>
+                    <div className="cybersec-skills-container">
+                      <Row className="g-3">
+                        <Col md={6}>
+                          <div className="cybersec-skill-item">
+                            <div className="d-flex align-items-center">
+                              <div className="cybersec-skill-icon me-3">
+                                <FaShieldAlt />
+                              </div>
+                              <div>
+                                <h5 className="h6 mb-1">Vulnerability Assessment</h5>
+                                <p className="small mb-0">Identifying and categorizing security vulnerabilities in web applications</p>
+                              </div>
+                            </div>
+                          </div>
+                        </Col>
+                        <Col md={6}>
+                          <div className="cybersec-skill-item">
+                            <div className="d-flex align-items-center">
+                              <div className="cybersec-skill-icon me-3">
+                                <FaCode />
+                              </div>
+                              <div>
+                                <h5 className="h6 mb-1">Exploit Development</h5>
+                                <p className="small mb-0">Creating proof-of-concept exploits for identified vulnerabilities</p>
+                              </div>
+                            </div>
+                          </div>
+                        </Col>
+                        <Col md={6}>
+                          <div className="cybersec-skill-item">
+                            <div className="d-flex align-items-center">
+                              <div className="cybersec-skill-icon me-3">
+                                <FaServer />
+                              </div>
+                              <div>
+                                <h5 className="h6 mb-1">Server Protection</h5>
+                                <p className="small mb-0">Implementing security measures to protect server infrastructure</p>
+                              </div>
+                            </div>
+                          </div>
+                        </Col>
+                        <Col md={6}>
+                          <div className="cybersec-skill-item">
+                            <div className="d-flex align-items-center">
+                              <div className="cybersec-skill-icon me-3">
+                                <SiMysql />
+                              </div>
+                              <div>
+                                <h5 className="h6 mb-1">Database Security</h5>
+                                <p className="small mb-0">Securing database systems against injection and unauthorized access</p>
+                              </div>
+                            </div>
+                          </div>
+                        </Col>
+                        <Col md={6}>
+                          <div className="cybersec-skill-item">
+                            <div className="d-flex align-items-center">
+                              <div className="cybersec-skill-icon me-3">
+                                <FaCode />
+                              </div>
+                              <div>
+                                <h5 className="h6 mb-1">Exploit Prevention</h5>
+                                <p className="small mb-0">Implementing protective measures against common exploit techniques</p>
+                              </div>
+                            </div>
+                          </div>
+                        </Col>
+                        <Col md={6}>
+                          <div className="cybersec-skill-item">
+                            <div className="d-flex align-items-center">
+                              <div className="cybersec-skill-icon me-3">
+                                <FaShieldAlt />
+                              </div>
+                              <div>
+                                <h5 className="h6 mb-1">Security Auditing</h5>
+                                <p className="small mb-0">Performing systematic evaluations of web application security controls</p>
+                              </div>
+                            </div>
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                    
+                    <div className="mt-3">
+                      <p className="small text-secondary">I focus on web application security and ethical penetration testing, following responsible disclosure principles when finding security vulnerabilities.</p>
                     </div>
                   </div>
                 </Card.Body>
@@ -529,56 +636,71 @@ export default function Home() {
             <Col lg={12} className="mb-4">
               <Card className="shadow-sm border-subtle">
                 <Card.Body>
-                  <div className="d-flex flex-column flex-md-row align-items-md-center mb-3">
-                    <div className="text-center text-md-start me-md-4 mb-3 mb-md-0">
-                      <FaBrain className="skill-icon" style={{ fontSize: '3rem' }} />
-                    </div>
-                    <div>
-                      <h3 className="h4 mb-2">Prompt Engineering</h3>
-                      <p className="text-secondary mb-0">Designing structured AI prompts to get optimal output from language models like ChatGPT and Gemini</p>
-                    </div>
+                  <div className="text-center mb-3">
+                    <FaBrain className="skill-icon mb-2" />
+                    <h3 className="h4">Prompt Engineering</h3>
                   </div>
                   
-                  <Row>
-                    <Col md={6}>
-                      <div className="mb-3">
-                        <div className="d-flex justify-content-between align-items-center mb-2">
-                          <span className="fw-medium">ChatGPT Prompt Design</span>
-                          <span className="badge bg-dark">85%</span>
+                  <div className="prompt-skills-container">
+                    <Row className="g-3">
+                      <Col md={6}>
+                        <div className="prompt-skill-item">
+                          <div className="d-flex align-items-center">
+                            <div className="prompt-skill-icon me-3">
+                              <FaBrain />
+                            </div>
+                            <div>
+                              <h5 className="h6 mb-1">ChatGPT Prompt Design</h5>
+                              <p className="small mb-0">Creating complex prompt structures and optimizing context window usage for better results</p>
+                            </div>
+                          </div>
                         </div>
-                        <ProgressBar now={85} className="mb-1" style={{ height: '6px' }} />
-                        <p className="text-secondary small mt-1">Complex prompt structures, context window optimization</p>
-                      </div>
-                      
-                      <div className="mb-3">
-                        <div className="d-flex justify-content-between align-items-center mb-2">
-                          <span className="fw-medium">AI Output Optimization</span>
-                          <span className="badge bg-dark">80%</span>
+                      </Col>
+                      <Col md={6}>
+                        <div className="prompt-skill-item">
+                          <div className="d-flex align-items-center">
+                            <div className="prompt-skill-icon me-3">
+                              <FaCode />
+                            </div>
+                            <div>
+                              <h5 className="h6 mb-1">AI Output Optimization</h5>
+                              <p className="small mb-0">Designing prompts that generate structured and consistent responses for specific tasks</p>
+                            </div>
+                          </div>
                         </div>
-                        <ProgressBar now={80} className="mb-1" style={{ height: '6px' }} />
-                        <p className="text-secondary small mt-1">Creating prompts that generate structured and consistent responses</p>
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div className="mb-3">
-                        <div className="d-flex justify-content-between align-items-center mb-2">
-                          <span className="fw-medium">Complex Prompt Systems</span>
-                          <span className="badge bg-dark">75%</span>
+                      </Col>
+                      <Col md={6}>
+                        <div className="prompt-skill-item">
+                          <div className="d-flex align-items-center">
+                            <div className="prompt-skill-icon me-3">
+                              <FaServer />
+                            </div>
+                            <div>
+                              <h5 className="h6 mb-1">Complex Prompt Systems</h5>
+                              <p className="small mb-0">Building multi-level instruction systems for advanced AI interactions and workflows</p>
+                            </div>
+                          </div>
                         </div>
-                        <ProgressBar now={75} className="mb-1" style={{ height: '6px' }} />
-                        <p className="text-secondary small mt-1">Designing prompt systems with multi-level instructions</p>
-                      </div>
-                      
-                      <div className="mb-3">
-                        <div className="d-flex justify-content-between align-items-center mb-2">
-                          <span className="fw-medium">AI Task Automation</span>
-                          <span className="badge bg-dark">70%</span>
+                      </Col>
+                      <Col md={6}>
+                        <div className="prompt-skill-item">
+                          <div className="d-flex align-items-center">
+                            <div className="prompt-skill-icon me-3">
+                              <FaLaptopCode />
+                            </div>
+                            <div>
+                              <h5 className="h6 mb-1">AI Task Automation</h5>
+                              <p className="small mb-0">Integrating AI models into automated workflows for efficient process execution</p>
+                            </div>
+                          </div>
                         </div>
-                        <ProgressBar now={70} className="mb-1" style={{ height: '6px' }} />
-                        <p className="text-secondary small mt-1">Integrating AI into automated workflows</p>
-                      </div>
-                    </Col>
-                  </Row>
+                      </Col>
+                    </Row>
+                  </div>
+                  
+                  <div className="mt-3">
+                    <p className="small text-secondary">Specialized in designing structured AI prompts to extract optimal output from language models like ChatGPT and Gemini. Experienced in developing prompt systems for specific use cases and applications.</p>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
@@ -1139,6 +1261,18 @@ export default function Home() {
           }
         }
         
+        /* Card hover styles - ONLY elevation, NO color change */
+        .shadow-sm.card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+          background-color: var(--bg-card) !important;
+        }
+        
+        .shadow-sm.card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+          background-color: var(--bg-card) !important;
+        }
+        
         .achievement-card {
           transition: var(--transition-normal);
         }
@@ -1146,6 +1280,16 @@ export default function Home() {
         .achievement-card:hover {
           transform: translateY(-3px);
           background-color: rgba(255, 255, 255, 0.03);
+        }
+        
+        /* Override main padding for hero section */
+        main {
+          padding-top: 64px !important; /* Reduce the top padding to move hero up */
+        }
+        
+        /* Hero section tweaks */
+        .hero {
+          margin-top: -20px; /* Negative margin to move up */
         }
         
         /* Projects carousel styling */
@@ -1435,6 +1579,196 @@ export default function Home() {
           .character-illustration {
             overflow: visible;
           }
+        }
+
+        /* Tech skills grid styling */
+        .tech-skills-container {
+          padding: 5px;
+        }
+        
+        .tech-skills-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 15px;
+        }
+        
+        .tech-skill-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: var(--bg-card-hover);
+          border-radius: 10px;
+          padding: 12px 8px;
+          transition: none;
+        }
+        
+        .tech-skill-item:hover {
+          transform: none;
+          box-shadow: none;
+          background: var(--bg-card-hover);
+        }
+        
+        .tech-skill-icon {
+          font-size: 2rem;
+          margin-bottom: 8px;
+          color: var(--accent);
+          transition: none;
+        }
+        
+        .tech-skill-item:hover .tech-skill-icon {
+          color: var(--accent);
+        }
+        
+        .tech-skill-name {
+          font-size: 0.8rem;
+          font-weight: 500;
+          text-align: center;
+        }
+        
+        @media (max-width: 576px) {
+          .tech-skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        /* Cybersecurity skills styling */
+        .cyber-skills-container {
+          padding: 5px;
+        }
+        
+        .cyber-skills-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 15px;
+        }
+        
+        .cyber-skill-item {
+          background: var(--bg-card-hover);
+          border-radius: var(--border-radius);
+          padding: 12px 15px;
+          height: 100%;
+          transition: none;
+        }
+        
+        .cyber-skill-item:hover {
+          transform: none;
+          box-shadow: none;
+          background: var(--bg-card-hover);
+        }
+        
+        .cyber-skill-icon {
+          font-size: 1.5rem;
+          color: var(--secondary-accent, #8B5CF6);
+          transition: none;
+          min-width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .cyber-skill-item:hover .cyber-skill-icon {
+          color: var(--secondary-accent, #8B5CF6);
+        }
+        
+        .cyber-skill-name {
+          font-size: 0.75rem;
+          font-weight: 500;
+          text-align: center;
+        }
+        
+        /* Cybersecurity detailed skills */
+        .cybersec-skills-container {
+          margin-top: 1.5rem;
+        }
+        
+        .cybersec-skill-item {
+          background: var(--bg-card-hover);
+          border-radius: var(--border-radius);
+          padding: 12px 15px;
+          height: 100%;
+          transition: none;
+        }
+        
+        .cybersec-skill-item:hover {
+          transform: none;
+          box-shadow: none;
+          background: var(--bg-card-hover);
+        }
+        
+        .cybersec-skill-icon {
+          font-size: 1.5rem;
+          color: var(--secondary-accent, #8B5CF6);
+          transition: none;
+          min-width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .cybersec-skill-item:hover .cybersec-skill-icon {
+          color: var(--secondary-accent, #8B5CF6);
+        }
+        
+        .skill-badge {
+          display: inline-block;
+          padding: 6px 12px;
+          margin-right: 8px;
+          margin-bottom: 8px;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          background: var(--bg-card-hover);
+          color: var(--text);
+          transition: none;
+        }
+        
+        .skill-badge:hover {
+          background: var(--bg-card-hover);
+          color: var(--text);
+          transform: none;
+        }
+        
+        @media (max-width: 992px) {
+          .cyber-skills-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .tech-skills-grid, .cyber-skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        /* Prompt Engineering skills */
+        .prompt-skills-container {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+        
+        .prompt-skill-item {
+          background: var(--bg-card-hover);
+          border-radius: var(--border-radius);
+          padding: 12px 15px;
+          height: 100%;
+          transition: none;
+        }
+        
+        .prompt-skill-item:hover {
+          transform: none;
+          box-shadow: none;
+          background: var(--bg-card-hover);
+        }
+        
+        .prompt-skill-icon {
+          font-size: 1.5rem;
+          color: var(--accent);
+          transition: none;
+          min-width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       `}</style>
     </Layout>
