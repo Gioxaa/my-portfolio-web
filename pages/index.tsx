@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Layout from '@/components/Layout';
 import { Container, Row, Col, Button, Card, ProgressBar, Carousel } from 'react-bootstrap';
-import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera, FaChevronLeft, FaChevronRight, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaNpm, FaDatabase, FaAws, FaPython, FaUbuntu, FaServer, FaFileDownload } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera, FaChevronLeft, FaChevronRight, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaNpm, FaDatabase, FaAws, FaPython, FaUbuntu, FaServer, FaFileDownload, FaMicrosoft, FaFileExcel, FaFilePowerpoint, FaUsers, FaPaintBrush, FaPhotoVideo, FaVideo, FaFileAlt } from 'react-icons/fa';
 import { SiMysql, SiMongodb, SiPostgresql } from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -393,7 +393,7 @@ export default function Home() {
           <p className="section-subtitle">Technical abilities I've developed and continue to improve</p>
           
           <Row>
-            <Col lg={5} md={6} className="mb-4">
+            <Col lg={6} md={6} className="mb-4">
               <Card className="h-100 shadow-sm border-subtle">
                 <Card.Body className="d-flex flex-column">
                   <div className="text-center mb-3">
@@ -487,7 +487,7 @@ export default function Home() {
               </Card>
             </Col>
             
-            <Col lg={7} md={6} className="mb-4">
+            <Col lg={6} md={6} className="mb-4">
               <Card className="h-100 shadow-sm border-subtle">
                 <Card.Body className="d-flex flex-column">
                   <div className="text-center mb-3">
@@ -593,16 +593,18 @@ export default function Home() {
                 </Card.Body>
               </Card>
             </Col>
-            
-            <Col lg={12} className="mb-4">
-              <Card className="shadow-sm border-subtle">
-                <Card.Body>
+          </Row>
+          
+          <Row>
+            <Col lg={6} md={6} className="mb-4">
+              <Card className="h-100 shadow-sm border-subtle">
+                <Card.Body className="d-flex flex-column">
                   <div className="text-center mb-3">
                     <FaBrain className="skill-icon mb-2" />
                     <h3 className="h4">Prompt Engineering</h3>
                   </div>
                   
-                  <div className="prompt-skills-container">
+                  <div className="prompt-skills-container flex-grow-1">
                     <Row className="g-3">
                       <Col md={6}>
                         <div className="prompt-skill-item">
@@ -661,6 +663,68 @@ export default function Home() {
                   
                   <div className="mt-3">
                     <p className="small text-secondary">Specialized in designing structured AI prompts to extract optimal output from language models like ChatGPT and Gemini. Experienced in developing prompt systems for specific use cases and applications.</p>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+            
+            <Col lg={6} md={6} className="mb-4">
+              <Card className="h-100 shadow-sm border-subtle">
+                <Card.Body className="d-flex flex-column">
+                  <div className="text-center mb-3">
+                    <FaFileAlt className="skill-icon mb-2" />
+                    <h3 className="h4">Microsoft Office & Editing</h3>
+                  </div>
+                  
+                  <div className="office-skills-container flex-grow-1">
+                    <div className="tech-skills-grid">
+                      <div className="tech-skill-item">
+                        <div className="tech-skill-icon">
+                          <FaMicrosoft />
+                        </div>
+                        <div className="tech-skill-name">Word</div>
+                      </div>
+                      <div className="tech-skill-item">
+                        <div className="tech-skill-icon">
+                          <FaFileExcel />
+                        </div>
+                        <div className="tech-skill-name">Excel</div>
+                      </div>
+                      <div className="tech-skill-item">
+                        <div className="tech-skill-icon">
+                          <FaFilePowerpoint />
+                        </div>
+                        <div className="tech-skill-name">PowerPoint</div>
+                      </div>
+                      <div className="tech-skill-item">
+                        <div className="tech-skill-icon">
+                          <FaUsers />
+                        </div>
+                        <div className="tech-skill-name">Teams</div>
+                      </div>
+                      <div className="tech-skill-item">
+                        <div className="tech-skill-icon">
+                          <FaPaintBrush />
+                        </div>
+                        <div className="tech-skill-name">Canva</div>
+                      </div>
+                      <div className="tech-skill-item">
+                        <div className="tech-skill-icon">
+                          <FaPhotoVideo />
+                        </div>
+                        <div className="tech-skill-name">Photoshop</div>
+                      </div>
+                      <div className="tech-skill-item">
+                        <div className="tech-skill-icon">
+                          <FaVideo />
+                        </div>
+                        <div className="tech-skill-name">CapCut</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-3">
+                    <p className="small text-secondary">Proficient in Microsoft Office suite for document creation, data analysis, and presentations. Skilled in using creative editing tools for design and video production.</p>
                   </div>
                 </Card.Body>
               </Card>
@@ -944,7 +1008,7 @@ export default function Home() {
                 bgColor: 'var(--secondary-accent)',
                 badgeColor: 'var(--secondary-accent)',
                 icon: <FaShieldAlt className="cert-icon" />,
-                skills: ['Public Speaking', 'Argumentation', 'Critical Thinking'],
+                skills: ['Public Speaking', 'Argumentation', 'Critical Thinking', 'Debate'],
                 image: '/images/certificates/cert4.jpg'
               },
               {
@@ -1154,23 +1218,20 @@ export default function Home() {
         <Container>
           <Row className="justify-content-center">
             <Col lg={8} className="text-center">
-              <Card className="border-0 shadow p-5" style={{ 
-                background: 'var(--subtle-gradient)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: 'var(--border-radius-lg)'
-              }}>
-                <h2 className="h3 mb-3">Interested in Collaboration?</h2>
-                <p className="text-secondary mb-4">I'm open to internship opportunities, part-time work, and project collaborations</p>
+              <div className="collaboration-section p-4 p-md-5 position-relative">
+                <div className="glow-effect"></div>
+                <h2 className="collaboration-title mb-3">Interested in Collaboration?</h2>
+                <p className="collaboration-text mb-4">I'm open to internship opportunities, part-time work, and project collaborations</p>
                 <div className="d-flex justify-content-center gap-3">
-                  <Button variant="primary" size="lg" href="mailto:reyhan@example.com">
+                  <Button variant="primary" className="collaboration-btn" href="mailto:reyhan@example.com">
                     <FaEnvelope className="me-2" />
                     Contact Me
                   </Button>
-                  <Button variant="outline-light" size="lg" href="/jurnal">
+                  <Button variant="outline-light" className="collaboration-btn" href="/jurnal">
                     View Bug Hunting Journal
                   </Button>
                 </div>
-              </Card>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -1197,6 +1258,88 @@ export default function Home() {
           transform: translateY(-5px);
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
           background-color: var(--bg-card) !important;
+        }
+        
+        /* Collaboration section styling */
+        .collaboration-section {
+          position: relative;
+          background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(139, 92, 246, 0.15));
+          border-radius: var(--border-radius-lg);
+          overflow: hidden;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          border-left: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .collaboration-section::before {
+          content: '';
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+          bottom: -100px;
+          left: -100px;
+          border-radius: 50%;
+          opacity: 0.4;
+          filter: blur(20px);
+          animation: pulse 6s infinite alternate-reverse;
+          pointer-events: none;
+        }
+        
+        .collaboration-title {
+          font-size: 1.75rem;
+          font-weight: 700;
+          background: var(--accent-gradient);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-bottom: 1rem;
+          position: relative;
+          display: inline-block;
+          text-shadow: 0 2px 10px rgba(14, 165, 233, 0.3);
+        }
+        
+        .collaboration-text {
+          font-size: 0.95rem;
+          color: var(--text-light);
+          max-width: 500px;
+          margin: 0 auto 1.5rem;
+          line-height: 1.6;
+        }
+        
+        .collaboration-btn {
+          font-size: 0.9rem;
+          padding: 0.6rem 1.2rem;
+          border-radius: 8px;
+          font-weight: 500;
+          letter-spacing: 0.3px;
+        }
+        
+        .glow-effect {
+          position: absolute;
+          width: 150px;
+          height: 150px;
+          background: radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, transparent 70%);
+          top: -75px;
+          right: -75px;
+          border-radius: 50%;
+          opacity: 0.6;
+          filter: blur(20px);
+          animation: pulse 6s infinite alternate;
+          pointer-events: none;
+        }
+        
+        @keyframes pulse {
+          0% {
+            opacity: 0.4;
+            transform: scale(0.8);
+          }
+          100% {
+            opacity: 0.6;
+            transform: scale(1.2);
+          }
         }
         
         /* About card hover - only floating effect, no color change */
