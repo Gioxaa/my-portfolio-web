@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Layout from '@/components/Layout';
 import { Container, Row, Col, Button, Card, ProgressBar, Carousel } from 'react-bootstrap';
-import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera, FaChevronLeft, FaChevronRight, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaNpm, FaDatabase, FaAws, FaPython, FaUbuntu, FaServer, FaFileDownload, FaMicrosoft, FaFileExcel, FaFilePowerpoint, FaUsers, FaPaintBrush, FaPhotoVideo, FaVideo, FaFileAlt } from 'react-icons/fa';
-import { SiMysql, SiMongodb, SiPostgresql } from 'react-icons/si';
+import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera, FaChevronLeft, FaChevronRight, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaNpm, FaDatabase, FaAws, FaPython, FaUbuntu, FaServer, FaFileDownload, FaUsers, FaVideo, FaFileAlt } from 'react-icons/fa';
+import { SiMysql, SiMongodb, SiPostgresql, SiMicrosoftword, SiMicrosoftexcel, SiMicrosoftpowerpoint, SiMicrosoftteams, SiCanva, SiAdobephotoshop } from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
 import CertificatePlaceholder from '@/components/CertificatePlaceholder';
@@ -447,12 +447,6 @@ export default function Home() {
                         </div>
                         <div className="tech-skill-item">
                           <div className="tech-skill-icon">
-                            <SiMongodb />
-                          </div>
-                          <div className="tech-skill-name">MongoDB</div>
-                        </div>
-                        <div className="tech-skill-item">
-                          <div className="tech-skill-icon">
                             <FaAws />
                           </div>
                           <div className="tech-skill-name">AWS</div>
@@ -476,6 +470,12 @@ export default function Home() {
                             </svg>
                           </div>
                           <div className="tech-skill-name">Network</div>
+                        </div>
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <FaGithub />
+                          </div>
+                          <div className="tech-skill-name">Git</div>
                         </div>
                       </div>
                     </div>
@@ -675,54 +675,48 @@ export default function Home() {
                     <FaFileAlt className="skill-icon mb-2" />
                     <h3 className="h4">Microsoft Office & Editing</h3>
                   </div>
-                  
-                  <div className="office-skills-container flex-grow-1">
-                    <div className="tech-skills-grid">
-                      <div className="tech-skill-item">
-                        <div className="tech-skill-icon">
-                          <FaMicrosoft />
+                  <div className="mb-3 flex-grow-1">
+                    <div className="tech-skills-container">
+                      <div className="tech-skills-grid">
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <SiMicrosoftword />
+                          </div>
+                          <div className="tech-skill-name">Word</div>
                         </div>
-                        <div className="tech-skill-name">Word</div>
-                      </div>
-                      <div className="tech-skill-item">
-                        <div className="tech-skill-icon">
-                          <FaFileExcel />
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <SiMicrosoftexcel />
+                          </div>
+                          <div className="tech-skill-name">Excel</div>
                         </div>
-                        <div className="tech-skill-name">Excel</div>
-                      </div>
-                      <div className="tech-skill-item">
-                        <div className="tech-skill-icon">
-                          <FaFilePowerpoint />
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <SiMicrosoftpowerpoint />
+                          </div>
+                          <div className="tech-skill-name">PowerPoint</div>
                         </div>
-                        <div className="tech-skill-name">PowerPoint</div>
-                      </div>
-                      <div className="tech-skill-item">
-                        <div className="tech-skill-icon">
-                          <FaUsers />
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <SiMicrosoftteams />
+                          </div>
+                          <div className="tech-skill-name">Teams</div>
                         </div>
-                        <div className="tech-skill-name">Teams</div>
-                      </div>
-                      <div className="tech-skill-item">
-                        <div className="tech-skill-icon">
-                          <FaPaintBrush />
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <SiCanva />
+                          </div>
+                          <div className="tech-skill-name">Canva</div>
                         </div>
-                        <div className="tech-skill-name">Canva</div>
-                      </div>
-                      <div className="tech-skill-item">
-                        <div className="tech-skill-icon">
-                          <FaPhotoVideo />
+                        <div className="tech-skill-item">
+                          <div className="tech-skill-icon">
+                            <SiAdobephotoshop />
+                          </div>
+                          <div className="tech-skill-name">Photoshop</div>
                         </div>
-                        <div className="tech-skill-name">Photoshop</div>
-                      </div>
-                      <div className="tech-skill-item">
-                        <div className="tech-skill-icon">
-                          <FaVideo />
-                        </div>
-                        <div className="tech-skill-name">CapCut</div>
                       </div>
                     </div>
                   </div>
-                  
                   <div className="mt-3">
                     <p className="small text-secondary">Proficient in Microsoft Office suite for document creation, data analysis, and presentations. Skilled in using creative editing tools for design and video production.</p>
                   </div>
