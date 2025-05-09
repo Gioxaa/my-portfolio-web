@@ -1,0 +1,92 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Styling Guide
+
+This document outlines the styling approach and design system used in the portfolio website.
+
+## CSS Variables
+
+The website uses CSS variables for consistent theming defined in [styles/globals.css](mdc:styles/globals.css). Key variables include:
+
+```css
+:root {
+  /* Colors */
+  --bg-dark: #0F172A;
+  --bg-card: #1E293B;
+  --bg-card-hover: #293548;
+  --text: #E2E8F0;
+  --text-light: #94A3B8;
+  --text-bright: #F8FAFC;
+  --accent: #0EA5E9;
+  --accent-hover: #0284C7;
+  --secondary-accent: #8B5CF6;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  
+  /* Gradients */
+  --accent-gradient: linear-gradient(90deg, #0EA5E9, #8B5CF6);
+  --subtle-gradient: linear-gradient(135deg, #0EA5E9, #8B5CF6);
+
+  /* Spacing */
+  --section-spacing: 5rem;
+  
+  /* Borders */
+  --border-radius: 8px;
+  --border-radius-sm: 6px;
+  --border-radius-lg: 12px;
+  
+  /* Transitions */
+  --transition-normal: all 0.3s ease;
+  --transition-fast: all 0.2s ease;
+}
+```
+
+## Class Naming Conventions
+
+The website follows these naming conventions:
+
+1. Bootstrap classes for layout and spacing (e.g., `container`, `row`, `col`, `mb-4`)
+2. Custom component-specific classes:
+   - Container elements: `{component-name}-container`
+   - Item elements: `{component-name}-item`
+   - Sub-elements: `{component-name}-{element-purpose}`
+
+Example:
+```html
+<div className="tech-skills-container">
+  <div className="tech-skills-grid">
+    <div className="tech-skill-item">
+      <div className="tech-skill-icon">...</div>
+      <div className="tech-skill-name">...</div>
+    </div>
+  </div>
+</div>
+```
+
+## Responsive Design
+
+The layout uses Bootstrap's responsive grid system with these breakpoints:
+
+- xs: < 576px (Mobile phones)
+- sm: ≥ 576px (Small tablets)
+- md: ≥ 768px (Tablets)
+- lg: ≥ 992px (Desktops)
+- xl: ≥ 1200px (Large desktops)
+
+## Animation Styles
+
+Animations use CSS transitions and keyframes:
+
+1. Hover effects with `transform` and `box-shadow`
+2. Section reveal with `opacity` and `transform`
+3. Special effects with custom `@keyframes`
+
+## Common Element Styles
+
+- Cards: `shadow-sm border-subtle` with hover effects
+- Buttons: `btn-primary` or `btn-outline-light` with standard Bootstrap styling
+- Icons: Size and color variations based on context
+
+

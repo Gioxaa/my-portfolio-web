@@ -58,6 +58,184 @@ export default function Home() {
   const projectsToShow = 3;
   const maxProjectIndex = programmingProjects.length - projectsToShow;
 
+  // Typewriter effect implementation
+  useEffect(() => {
+    // Function to implement typewriter effect
+    const typewriterEffect = () => {
+      const typewriterElement = document.querySelector('.typewriter-text');
+      if (!typewriterElement) return;
+      
+      // Get the roles array from data-rotate attribute
+      const rolesAttr = typewriterElement.getAttribute('data-rotate');
+      if (!rolesAttr) return;
+      
+      try {
+        const roles = JSON.parse(rolesAttr);
+        let currentIndex = 0;
+        let currentRole = roles[0];
+        let isDeleting = false;
+        let charIndex = 0;
+        let typingSpeed = 100;
+        let waitAfterTyping = 2000;
+        let waitAfterDeleting = 500;
+        
+        // Clear any existing content
+        typewriterElement.textContent = '';
+        
+        const type = () => {
+          // Current role
+          currentRole = roles[currentIndex];
+          
+          // Determine typing or deleting
+          if (isDeleting) {
+            // Remove character
+            charIndex--;
+            // Faster when deleting
+            typingSpeed = 50;
+          } else {
+            // Add character
+            charIndex++;
+            // Random typing speed for more natural effect
+            typingSpeed = Math.random() * 50 + 80;
+          }
+          
+          // Current text to show
+          typewriterElement.textContent = currentRole.substring(0, charIndex);
+          
+          // When complete typing
+          if (!isDeleting && charIndex === currentRole.length) {
+            // Wait before start deleting
+            isDeleting = true;
+            typingSpeed = waitAfterTyping;
+          } 
+          // When complete deleting
+          else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            // Move to next role
+            currentIndex = (currentIndex + 1) % roles.length;
+            typingSpeed = waitAfterDeleting;
+          }
+          
+          setTimeout(type, typingSpeed);
+        };
+        
+        // Start the effect
+        setTimeout(type, 1000);
+      } catch (error) {
+        console.error("Error parsing roles for typewriter effect:", error);
+        typewriterElement.textContent = "Developer";
+      }
+    };
+    
+    // Implement particle effects for hero section
+    const createParticleEffect = () => {
+      const particleContainer = document.querySelector('.hero-particle-container');
+      if (!particleContainer) return;
+      
+      const particleCount = window.innerWidth > 768 ? 30 : 15;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('hero-particle');
+        
+        // Random styles
+        const size = Math.random() * 6 + 1; // 1-7px
+        const duration = Math.random() * 10 + 20; // 20-30s
+        const opacity = Math.random() * 0.5 + 0.1; // 0.1-0.6
+        const delay = Math.random() * 5; // 0-5s
+        
+        // Position randomly in the container
+        const startX = Math.random() * 100; // 0-100%
+        const startY = Math.random() * 100; // 0-100%
+        
+        // Style the particle
+        particle.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          background: rgba(255, 255, 255, ${opacity});
+          border-radius: 50%;
+          top: ${startY}%;
+          left: ${startX}%;
+          animation: floatUpward ${duration}s linear ${delay}s infinite;
+          z-index: 0;
+        `;
+        
+        particleContainer.appendChild(particle);
+      }
+      
+      // Add the keyframes animation if not already in the document
+      if (!document.getElementById('particle-animation')) {
+        const style = document.createElement('style');
+        style.id = 'particle-animation';
+        style.textContent = `
+          @keyframes floatUpward {
+            0% {
+              transform: translate(0, 0) rotate(0deg);
+              opacity: 0;
+            }
+            10% {
+              opacity: 1;
+            }
+            90% {
+              opacity: 1;
+            }
+            100% {
+              transform: translate(${Math.random() * 100 - 50}px, -100vh) rotate(${Math.random() * 360}deg);
+              opacity: 0;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    };
+    
+    // Initialize animated counters for statistics
+    const initStatCounters = () => {
+      const statValues = document.querySelectorAll('.hero-stat-value');
+      
+      statValues.forEach(valueEl => {
+        const targetValue = valueEl.textContent;
+        if (!targetValue) return;
+        
+        // Remove the "+" if present for calculation
+        const numericValue = parseInt(targetValue.replace('+', ''));
+        
+        // Set initial value to 0
+        valueEl.textContent = '0';
+        
+        // Animate count up
+        let currentValue = 0;
+        const duration = 2000; // 2 seconds
+        const interval = 50; // Update every 50ms
+        const increment = numericValue / (duration / interval);
+        
+        const counter = setInterval(() => {
+          currentValue += increment;
+          
+          if (currentValue >= numericValue) {
+            valueEl.textContent = targetValue; // Reset to original format with '+'
+            clearInterval(counter);
+          } else {
+            valueEl.textContent = Math.floor(currentValue).toString();
+          }
+        }, interval);
+      });
+    };
+    
+    // Call all animation initialization functions
+    typewriterEffect();
+    createParticleEffect();
+    
+    // Start counters after a delay to let the section become visible
+    setTimeout(initStatCounters, 800);
+    
+    // Cleanup function
+    return () => {
+      // Cleanup if needed
+    };
+  }, []);
+
   // Calculate if scroll arrows should be visible
   const updateScrollArrows = useCallback(() => {
     if (scrollContainerRef.current) {
@@ -179,83 +357,145 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Hero Section - Enhanced */}
       <section className="hero">
+        {/* Animated Background Elements */}
+        <div className="hero-bg-elements">
+          <div className="hero-blob hero-blob-1"></div>
+          <div className="hero-blob hero-blob-2"></div>
+          <div className="hero-blob hero-blob-3"></div>
+          <div className="hero-glow hero-glow-1"></div>
+          <div className="hero-glow hero-glow-2"></div>
+          <div className="hero-particle-container">
+            {/* Particles will be created by JS */}
+          </div>
+        </div>
+
         <Container>
-          <Row className="align-items-center">
-            <Col lg={6} className="hero-content text-center text-lg-start fade-in">
-              <h1 className="display-4 fw-bold mb-3">Muhammad Reyhan</h1>
-              <h2 className="h5 mb-3 text-secondary">Rokan Hulu, Riau</h2>
-              <p className="lead mb-4">
+          <Row className="align-items-center justify-content-center">
+            <Col lg={6} md={10} className="hero-content text-center text-lg-start fade-in">
+              <h1 className="hero-title mb-3">
+                <span className="gradient-name">Muhammad Reyhan</span>
+                <div className="typewriter-container">
+                  <span className="typewriter-prefix">I'm a </span>
+                  <span className="typewriter-text" data-rotate='["Developer", "Designer", "Prompt Engineer", "Security Enthusiast"]'></span>
+                </div>
+              </h1>
+              
+              <h2 className="hero-location">
+                <span className="location-icon">📍</span> Rokan Hulu, Riau
+              </h2>
+              
+              <p className="hero-description">
                 Self-taught high school graduate building a career in technology. 
                 I develop skills in programming, AI prompt engineering, 
                 and cybersecurity bug bounty. Ready to contribute to dynamic teams and real projects.
               </p>
-              <div className="d-flex gap-3 justify-content-center justify-content-lg-start">
-                <Button variant="primary" href="mailto:reyhan@example.com" className="btn-touch-effect">
+              
+              <div className="hero-buttons d-flex gap-3 justify-content-center justify-content-lg-start">
+                <Button variant="primary" href="mailto:reyhan@example.com" className="btn-glow">
                   <FaEnvelope className="me-2" />
-                  Email
+                  Email Me
                 </Button>
                 <Button variant="outline-light" href="https://github.com/yourusername" target="_blank" className="btn-touch-effect">
                   <FaGithub className="me-2" />
                   GitHub
                 </Button>
+                <a href="/files/cv-muhammad-reyhan.pdf" download className="btn btn-outline-primary btn-touch-effect d-none d-md-block">
+                  <FaFileDownload className="me-2" />
+                  Resume
+                </a>
+              </div>
+              
+              <div className="d-block d-md-none mt-3 text-center">
                 <a href="/files/cv-muhammad-reyhan.pdf" download className="btn btn-outline-primary btn-touch-effect">
                   <FaFileDownload className="me-2" />
                   Resume
                 </a>
               </div>
+              
+              <div className="hero-stats d-flex justify-content-center justify-content-lg-start mt-4">
+                <div className="hero-stat-item">
+                  <div className="hero-stat-value">10+</div>
+                  <div className="hero-stat-label">Projects</div>
+                </div>
+                <div className="hero-stat-divider"></div>
+                <div className="hero-stat-item">
+                  <div className="hero-stat-value">3+</div>
+                  <div className="hero-stat-label">Years Experience</div>
+                </div>
+                <div className="hero-stat-divider"></div>
+                <div className="hero-stat-item">
+                  <div className="hero-stat-value">5+</div>
+                  <div className="hero-stat-label">Certificates</div>
+                </div>
+              </div>
             </Col>
-            <Col lg={6} className="text-center mt-5 mt-lg-0">
-              <div className="hero-illustration">
-                {/* Modern illustration of developer */}
+            
+            <Col lg={6} className="text-center mt-4 mt-lg-0">
+              <div className="hero-illustration d-none d-lg-flex">
+                {/* Modern illustration of developer with enhanced styling */}
                 <div className="illustration-container">
-                  <div className="character-illustration">
-                    <svg width="480" height="400" viewBox="0 0 580 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {/* Background elements */}
-                      <circle cx="240" cy="200" r="120" fill="rgba(79, 70, 229, 0.1)" />
-                      <circle cx="240" cy="200" r="80" fill="rgba(14, 165, 233, 0.1)" />
+                  <div className="character-illustration floating">
+                    <svg width="100%" height="100%" viewBox="-20 0 440 350" fill="none" xmlns="http://www.w3.org/2000/svg" className="dev-illustration-svg">
+                      {/* Enhanced Background elements */}
+                      <circle cx="200" cy="180" r="100" fill="rgba(79, 70, 229, 0.1)" className="pulse-slow" />
+                      <circle cx="200" cy="180" r="70" fill="rgba(14, 165, 233, 0.1)" className="pulse-slow-reverse" />
                       
                       {/* Target/Circle */}
-                      <circle cx="150" cy="220" r="50" fill="none" stroke="#000922" strokeWidth="2" />
-                      <circle cx="150" cy="220" r="25" fill="none" stroke="#000922" strokeWidth="2" />
-                      <line x1="150" y1="170" x2="150" y2="270" stroke="#000922" strokeWidth="2" />
-                      <line x1="100" y1="220" x2="200" y2="220" stroke="#000922" strokeWidth="2" />
+                      <circle cx="120" cy="190" r="40" fill="none" stroke="#000922" strokeWidth="2" className="rotate-slow" />
+                      <circle cx="120" cy="190" r="20" fill="none" stroke="#000922" strokeWidth="2" className="rotate-slow-reverse" />
+                      <line x1="120" y1="150" x2="120" y2="230" stroke="#000922" strokeWidth="2" />
+                      <line x1="80" y1="190" x2="160" y2="190" stroke="#000922" strokeWidth="2" />
                       
-                      {/* Cloud elements */}
-                      <path d="M380 150 C380 130 400 120 420 130 C425 115 450 115 455 130 C470 125 485 135 485 150 C485 165 465 175 440 170 C435 180 410 180 405 170 C390 175 380 165 380 150Z" fill="#E4D7F9" />
-                      <path d="M330 320 C330 305 345 298 360 305 C364 293 383 293 387 305 C398 301 410 308 410 320 C410 331 395 339 376 335 C372 343 353 343 349 335 C338 339 330 331 330 320Z" fill="#E4D7F9" />
+                      {/* Cloud elements with animations */}
+                      <path d="M320 130 C320 110 340 100 360 110 C365 95 385 95 390 110 C405 105 420 115 420 130 C420 145 400 155 380 150 C375 160 350 160 345 150 C330 155 320 145 320 130Z" fill="#E4D7F9" className="float-slow" />
+                      <path d="M290 270 C290 260 300 254 310 260 C313 250 328 250 331 260 C340 257 348 263 348 270 C348 280 335 285 321 280 C318 287 303 287 300 280 C290 284 290 280 290 270Z" fill="#E4D7F9" className="float-slow-reverse" />
                       
                       {/* Character */}
-                      <path d="M240 180 C240 150 270 130 310 150 C330 120 380 130 380 180 L370 250 L250 260 L240 180Z" fill="#7C3AED" />
-                      <rect x="250" y="200" width="100" height="140" rx="10" fill="#4338CA" />
-                      <path d="M300 210 C320 210 330 230 330 270 C330 310 320 340 300 340 C280 340 270 310 270 270 C270 230 280 210 300 210Z" fill="#7C3AED" />
+                      <path d="M200 160 C200 130 230 115 260 130 C280 105 320 115 320 160 L310 220 L210 230 L200 160Z" fill="#7C3AED" />
+                      <rect x="210" y="180" width="90" height="120" rx="10" fill="#4338CA" />
+                      <path d="M255 190 C275 190 285 210 285 240 C285 270 275 300 255 300 C235 300 225 270 225 240 C225 210 235 190 255 190Z" fill="#7C3AED" />
                       
-                      {/* Face */}
-                      <circle cx="300" cy="190" r="30" fill="#FFD580" />
-                      <ellipse cx="290" cy="185" rx="3" ry="4" fill="#000" />
-                      <ellipse cx="310" cy="185" rx="3" ry="4" fill="#000" />
-                      <path d="M295 200 C300 205 305 205 310 200" stroke="#000" strokeWidth="2" strokeLinecap="round" />
+                      {/* Face with improved expression */}
+                      <circle cx="255" cy="170" r="25" fill="#FFD580" />
+                      <ellipse cx="245" cy="165" rx="3" ry="4" fill="#000" className="blink" />
+                      <ellipse cx="265" cy="165" rx="3" ry="4" fill="#000" className="blink" />
+                      <path d="M250 180 C255 185 260 185 265 180" stroke="#000" strokeWidth="2" strokeLinecap="round" />
                       
-                      {/* Arms */}
-                      <path d="M250 220 C230 230 220 250 230 280" stroke="#F1C27D" strokeWidth="10" strokeLinecap="round" />
-                      <path d="M350 220 C370 220 380 270 370 300" stroke="#F1C27D" strokeWidth="10" strokeLinecap="round" />
+                      {/* Arms with subtle animation */}
+                      <path d="M210 200 C195 210 185 225 190 250" stroke="#F1C27D" strokeWidth="8" strokeLinecap="round" className="wave-slow" />
+                      <path d="M300 200 C315 210 325 235 320 260" stroke="#F1C27D" strokeWidth="8" strokeLinecap="round" className="type-animation" />
                       
                       {/* Hands with coding/computer gestures */}
-                      <rect x="220" y="280" width="20" height="30" rx="5" fill="#FFD580" />
-                      <rect x="360" y="300" width="20" height="30" rx="5" fill="#FFD580" />
+                      <rect x="185" y="250" width="15" height="20" rx="5" fill="#FFD580" className="wave-slow" />
+                      <rect x="315" y="260" width="15" height="20" rx="5" fill="#FFD580" className="type-animation" />
                       
-                      {/* Computer */}
-                      <rect x="250" y="310" width="100" height="70" rx="5" fill="#1E293B" />
-                      <rect x="255" y="315" width="90" height="50" rx="2" fill="#38BDF8" />
-                      <rect x="270" y="380" width="60" height="5" rx="2" fill="#1E293B" />
-                      <rect x="295" y="375" width="10" height="5" rx="2" fill="#1E293B" />
+                      {/* Computer with code animation */}
+                      <rect x="215" y="260" width="80" height="60" rx="5" fill="#1E293B" />
+                      <rect x="220" y="265" width="70" height="40" rx="2" fill="#38BDF8" className="code-screen" />
+                      <rect x="235" y="325" width="40" height="4" rx="2" fill="#1E293B" />
+                      <rect x="250" y="321" width="10" height="4" rx="2" fill="#1E293B" />
                       
-                      {/* Code symbols on screen */}
-                      <path d="M270 330 L290 345 L270 360" stroke="#FFFFFF" strokeWidth="2" />
-                      <path d="M330 330 L310 345 L330 360" stroke="#FFFFFF" strokeWidth="2" />
-                      <line x1="305" y1="325" x2="295" y2="365" stroke="#FFFFFF" strokeWidth="2" />
+                      {/* Code symbols on screen with animation */}
+                      <path d="M235 280 L245 290 L235 300" stroke="#FFFFFF" strokeWidth="1.5" className="code-element" />
+                      <path d="M275 280 L265 290 L275 300" stroke="#FFFFFF" strokeWidth="1.5" className="code-element" />
+                      <line x1="255" y1="275" x2="250" y2="305" stroke="#FFFFFF" strokeWidth="1.5" className="code-element" />
                     </svg>
+                  </div>
+                  
+                  {/* Tech stack floating elements - only shown on desktop */}
+                  <div className="tech-icon-floater tech-icon-1 d-none d-lg-flex">
+                    <FaReact className="tech-float-icon" />
+                  </div>
+                  <div className="tech-icon-floater tech-icon-2 d-none d-lg-flex">
+                    <FaNodeJs className="tech-float-icon" />
+                  </div>
+                  <div className="tech-icon-floater tech-icon-3 d-none d-lg-flex">
+                    <FaPython className="tech-float-icon" />
+                  </div>
+                  <div className="tech-icon-floater tech-icon-4 d-none d-lg-flex">
+                    <FaShieldAlt className="tech-float-icon" />
                   </div>
                 </div>
               </div>
