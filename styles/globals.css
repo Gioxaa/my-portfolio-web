@@ -960,8 +960,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-stat-label {
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-size: 0.85rem; /* Sedikit lebih kecil agar muat */
 }
 
 .hero-stat-divider {
@@ -1347,14 +1346,30 @@ h1, h2, h3, h4, h5, h6 {
     /* padding: 0.75rem; */
     width: 100%;
     justify-content: space-around;
+    flex-wrap: nowrap; /* Pastikan tidak wrapping ke baris baru */
+    display: flex;
+    margin-left: autc;
+    margin-right: auto;
   }
   
   .hero-stat-item {
-    padding: 0 0.75rem;
+    padding: 0 0.5rem;
+    flex: 1; /* Sama rata untuk semua item */
+    min-width: 0; /* Memungkinkan flex items mengecil di bawah lebar konten */
+    text-align: center; /* Memastikan teks terpusat */
+  }
+  
+  .hero-stat-label {
+    font-size: 0.9rem; /* Sedikit lebih kecil agar muat */
   }
   
   .tech-icon-floater {
     display: none; /* Hide floating tech icons on mobile to clean up the view */
+  }
+  
+  .hero-stat-divider {
+    margin: 0 1rem;
+    height: 60px; /* Tinggi yang lebih proporsional */
   }
 }
 
