@@ -75,11 +75,11 @@ export default function BugHuntingJournal() {
   const journalEntries = [
     {
       id: 1,
-      title: 'SQL Injection – registrasiulang.unri.ac.id',
-      description: 'Using the query "\'or 1=1 -- -" to test for injection vulnerability, then proceeding with testing using sqlmap to confirm the vulnerability. Results indicated potential sensitive data extraction through improperly validated queries.',
+      title: 'SQL Injection',
+      description: 'Using the SQL Query to test for injection vulnerability, then proceeding with testing using sqlmap to confirm the vulnerability. Results indicated potential sensitive data extraction through improperly validated queries.',
       method: 'SQL Injection',
-      target: 'registrasiulang.unri.ac.id',
-      date: 'January 2024'
+      target: 'https://sda.pu.go.id/balai/bbwsnt2/page.php?idn=14',
+      date: 'April 2025'
     },
     {
       id: 2,
@@ -87,7 +87,7 @@ export default function BugHuntingJournal() {
       description: 'Attempting to predict the hash used in password reset URLs by analyzing hash formation patterns from several URL samples. The patterns found showed that the hash could be predicted with a certain level of accuracy due to the lack of random elements in its formation.',
       method: 'Hash Analysis',
       target: 'Institutional web application',
-      date: 'February 2024'
+      date: 'April 2025'
     },
     {
       id: 3,
@@ -95,15 +95,7 @@ export default function BugHuntingJournal() {
       description: 'Identifying that CSRF tokens were not regenerated on each request, allowing the same token to be reused for multiple operations. This creates a security vulnerability where attackers can use the same token to perform actions on behalf of authenticated users.',
       method: 'CSRF Token Reuse',
       target: 'Student portal',
-      date: 'February 2024'
-    },
-    {
-      id: 4,
-      title: 'IDOR on Academic System',
-      description: 'Manipulating student ID or ID parameters in URLs to access data that should not be accessible to the user. The system did not verify whether the user accessing the data had the correct permissions, allowing access to other students\' data.',
-      method: 'IDOR',
-      target: 'Campus academic system',
-      date: 'March 2024'
+      date: 'April 2025'
     },
     {
       id: 5,
@@ -111,7 +103,7 @@ export default function BugHuntingJournal() {
       description: 'Testing file upload vulnerabilities with techniques such as modifying file extensions to ".pdf.php" and performing MIME spoofing. Successfully uploaded PHP files that could be executed by the server through validation that only checked file extensions without in-depth content analysis.',
       method: 'File Upload Bypass',
       target: 'Document upload system',
-      date: 'March 2024'
+      date: 'April 2025'
     },
     {
       id: 6,

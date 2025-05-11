@@ -72,54 +72,58 @@ export default function Home() {
       try {
         const roles = JSON.parse(rolesAttr);
         let currentIndex = 0;
-        let currentRole = roles[0];
         let isDeleting = false;
-        let charIndex = 0;
+        let text = '';
         let typingSpeed = 100;
-        let waitAfterTyping = 2000;
-        let waitAfterDeleting = 500;
+        
+        // Constants for timing
+        const deletingSpeed = 50;         // Faster when deleting
+        const typingVariation = 80;       // Base typing speed variation
+        const pauseBeforeDelete = 2000;   // Wait before starting to delete
+        const pauseBeforeNewWord = 500;   // Wait before typing new word
         
         // Clear any existing content
         typewriterElement.textContent = '';
         
         const type = () => {
-          // Current role
-          currentRole = roles[currentIndex];
+          const currentRole = roles[currentIndex];
           
-          // Determine typing or deleting
+          // Handle typing or deleting
           if (isDeleting) {
-            // Remove character
-            charIndex--;
-            // Faster when deleting
-            typingSpeed = 50;
+            // Delete a character
+            text = currentRole.substring(0, text.length - 1);
+            typingSpeed = deletingSpeed;
           } else {
-            // Add character
-            charIndex++;
-            // Random typing speed for more natural effect
-            typingSpeed = Math.random() * 50 + 80;
+            // Add a character
+            text = currentRole.substring(0, text.length + 1);
+            // Random speed variation for natural effect
+            typingSpeed = Math.random() * 50 + typingVariation;
           }
           
-          // Current text to show
-          typewriterElement.textContent = currentRole.substring(0, charIndex);
+          // Update the text content
+          typewriterElement.textContent = text;
           
-          // When complete typing
-          if (!isDeleting && charIndex === currentRole.length) {
-            // Wait before start deleting
+          // Logic for changing state after typing/deleting
+          if (!isDeleting && text === currentRole) {
+            // Finished typing the word, pause before deleting
             isDeleting = true;
-            typingSpeed = waitAfterTyping;
-          } 
-          // When complete deleting
-          else if (isDeleting && charIndex === 0) {
+            typingSpeed = pauseBeforeDelete;
+          } else if (isDeleting && text === '') {
+            // Finished deleting the word
             isDeleting = false;
+            
             // Move to next role
             currentIndex = (currentIndex + 1) % roles.length;
-            typingSpeed = waitAfterDeleting;
+            
+            // Pause before typing the next word
+            typingSpeed = pauseBeforeNewWord;
           }
           
+          // Continue the typing animation
           setTimeout(type, typingSpeed);
         };
         
-        // Start the effect
+        // Start the effect after a short delay
         setTimeout(type, 1000);
       } catch (error) {
         console.error("Error parsing roles for typewriter effect:", error);
@@ -1094,52 +1098,52 @@ export default function Home() {
               <Row className="g-4 justify-content-center">
                 {[
                   {
-                    title: "School Magazine Cover",
-                    desc: "Cover design for annual school magazine featuring dynamic composition and typography.",
-                    category: "Print Design",
-                    tools: ["Photoshop", "Illustrator"],
+                    title: "OSIS Goodbye Design",
+                    desc: "A heartfelt farewell poster for OSIS members, combining memorable moments and creative visual elements to celebrate their journey.",
+                    category: "Poster Design",
+                    tools: ["Canva"],
                     color: "linear-gradient(135deg, #4F46E5, #7C3AED)",
-                    image: "/images/certificates/cert1.jpg"
+                    image: "/images/poster/osis.png"
                   },
                   {
-                    title: "Photography Exhibition Poster",
-                    desc: "Promotional poster for the Rokan Hulu Photography Community's annual exhibition.",
+                    title: "Dirgahayu Indonesia 79",
+                    desc: "A creative poster commemorating Indonesia's 79th Independence Day, featuring red and white themes and iconic national elements.",
                     category: "Poster Design",
                     tools: ["Photoshop", "Canva"],
                     color: "linear-gradient(135deg, #0EA5E9, #3B82F6)",
-                    image: "/images/certificates/cert.jpg"
+                    image: "/images/poster/ri79.png"
                   },
                   {
-                    title: "Climate Change Infographic",
-                    desc: "Educational infographic about climate change impacts in Indonesia for school project.",
+                    title: "Stop Bullying",
+                    desc: "An educational infographic designed to raise awareness about the dangers of bullying and promote a safe, inclusive school environment.",
                     category: "Information Design",
                     tools: ["Illustrator", "Figma"],
                     color: "linear-gradient(135deg, #10B981, #059669)",
-                    image: "/images/certificates/cert.jpg"
+                    image: "/images/poster/abully.png"
                   },
                   {
-                    title: "OSIS Logo Redesign",
-                    desc: "Modern refresh of the OSIS organization logo while maintaining its core identity.",
-                    category: "Logo Design",
-                    tools: ["Illustrator"],
+                    title: "Event Name Tag",
+                    desc: "A creative and functional name tag design for event participants, featuring clear layout, vibrant colors, and personalized details to enhance attendee experience.",
+                    category: "Print Design",
+                    tools: ["Canva"],
                     color: "linear-gradient(135deg, #F59E0B, #D97706)",
-                    image: "/images/certificates/cert.jpg"
+                    image: "/images/poster/mocknametag.png"
                   },
                   {
-                    title: "School Event Social Media Kit",
-                    desc: "Comprehensive social media graphics package for school festival promotion.",
-                    category: "Digital Design",
+                    title: "Event Banner",
+                    desc: "A vibrant and eye-catching banner designed for a school event, combining bold typography and engaging visuals to attract attention and promote participation.",
+                    category: "Print Design",
                     tools: ["Photoshop", "Canva"],
                     color: "linear-gradient(135deg, #EC4899, #DB2777)",
-                    image: "/images/certificates/cert.jpg"
+                    image: "/images/poster/bbmockup.png"
                   },
                   {
-                    title: "Journalism Club Website UI",
-                    desc: "Modern UI design concept for the school's journalism club website.",
+                    title: "Ramadhan Kareem Poster",
+                    desc: "A festive poster celebrating the spirit of Ramadhan, featuring elegant calligraphy, crescent motifs, and a warm, inviting color palette.",
                     category: "UI Design",
-                    tools: ["Figma", "Photoshop"],
+                    tools: ["Canva"],
                     color: "linear-gradient(135deg, #8B5CF6, #6D28D9)",
-                    image: "/images/certificates/cert.jpg"
+                    image: "/images/poster/ramadhankareemm.png"
                   }
                 ].map((design, index) => (
                   <Col lg={4} md={6} key={index} className={index >= 3 ? "d-flex justify-content-center" : ""}>
@@ -1233,17 +1237,6 @@ export default function Home() {
                 icon: <FaBrain className="cert-icon" />,
                 skills: ['Programming', 'Algorithms', 'Problem Solving'],
                 image: '/images/certificates/cert3.jpg'
-              },
-              {
-                title: 'Finalist in Indonesian Debate Competition',
-                org: 'PUSPRESNAS',
-                date: 'September 2024',
-                desc: 'Finalist in the Indonesian Debate Competition at Riau Provincial level.',
-                bgColor: 'var(--secondary-accent)',
-                badgeColor: 'var(--secondary-accent)',
-                icon: <FaShieldAlt className="cert-icon" />,
-                skills: ['Public Speaking', 'Argumentation', 'Critical Thinking', 'Debate'],
-                image: '/images/certificates/cert4.jpg'
               },
               {
                 title: 'Zero to Hero Security Engineer',

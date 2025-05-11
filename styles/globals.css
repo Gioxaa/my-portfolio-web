@@ -843,9 +843,10 @@ h1, h2, h3, h4, h5, h6 {
 .typewriter-text::after {
   content: '|';
   position: absolute;
-  right: -8px;
+  right: -4px;
   top: 0;
   animation: blink 0.8s infinite;
+  opacity: 1;
 }
 
 .hero-location {
@@ -2358,7 +2359,6 @@ section::before {
     font-size: 1.1rem;
   }
 }
-
 @media (max-width: 768px) {
   .project-card .card-body, 
   .project-card .card-footer {
@@ -2526,3 +2526,4 @@ section::before {
     margin: 0.25rem 0;
   }
 } 
+
