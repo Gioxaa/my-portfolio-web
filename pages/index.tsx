@@ -1,11 +1,25 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Layout from '@/components/Layout';
-import { Container, Row, Col, Button, Card, ProgressBar, Carousel } from 'react-bootstrap';
-import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera, FaChevronLeft, FaChevronRight, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaNpm, FaDatabase, FaAws, FaPython, FaUbuntu, FaServer, FaFileDownload, FaUsers, FaVideo, FaFileAlt } from 'react-icons/fa';
+import { Container, Row, Col, Button, Card, ProgressBar, Carousel, Modal } from 'react-bootstrap';
+import { FaEnvelope, FaWhatsapp, FaCode, FaLaptopCode, FaShieldAlt, FaGithub, FaBrain, FaArrowRight, FaEye, FaCamera, FaChevronLeft, FaChevronRight, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaNpm, FaDatabase, FaAws, FaPython, FaUbuntu, FaServer, FaFileDownload, FaUsers, FaVideo, FaFileAlt, FaTimes, FaExternalLinkAlt, FaCalendarAlt } from 'react-icons/fa';
 import { SiMysql, SiMongodb, SiPostgresql, SiMicrosoftword, SiMicrosoftexcel, SiMicrosoftpowerpoint, SiMicrosoftteams, SiCanva, SiAdobephotoshop } from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
 import CertificatePlaceholder from '@/components/CertificatePlaceholder';
+
+// Define interface for design projects
+interface DesignProject {
+  title: string;
+  desc: string;
+  category: string;
+  tools: string[];
+  color: string;
+  image: string;
+  date: string;
+  client: string;
+  detailedDesc: string;
+  features: string[];
+}
 
 export default function Home() {
   const [projectTab, setProjectTab] = useState<'programming' | 'design'>('programming');
@@ -14,6 +28,10 @@ export default function Home() {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  
+  // State for design project modal
+  const [showModal, setShowModal] = useState(false);
+  const [selectedDesign, setSelectedDesign] = useState<DesignProject | null>(null);
   
   // Define programming projects
   const programmingProjects = [
@@ -33,7 +51,7 @@ export default function Home() {
     },
     {
       title: 'Growtopia Online Checker Webhook',
-      desc: 'A Python-based webhook tool to check the online status of Growtopia servers and send notifications. Useful for monitoring server uptime and automating alerts.',
+      desc: 'A Python-based webhook tool to check the online player status of Growtopia servers and send notifications. Useful for monitoring server uptime and automating alerts.',
       img: 'linear-gradient(135deg, #0ea5e9, #8b5cf6)',
       tech: ['Python', 'Webhooks'],
       link: 'https://github.com/Gioxaa/growtopia-online-checker-webhook'
@@ -352,6 +370,17 @@ export default function Home() {
       sections.forEach(section => observer.unobserve(section));
     };
   }, []);
+
+  // Function to open the modal with the selected design
+  const openDesignModal = (design: DesignProject) => {
+    setSelectedDesign(design);
+    setShowModal(true);
+  };
+
+  // Function to close the modal
+  const closeDesignModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <Layout>
@@ -1090,56 +1119,112 @@ export default function Home() {
           {projectTab === 'design' && (
             <div className="design-projects-container">
               <Row className="g-4 justify-content-center">
-                {[
-                  {
-                    title: "OSIS Goodbye Design",
-                    desc: "A heartfelt farewell poster for OSIS members, combining memorable moments and creative visual elements to celebrate their journey.",
-                    category: "Poster Design",
-                    tools: ["Canva"],
-                    color: "linear-gradient(135deg, #4F46E5, #7C3AED)",
-                    image: "/images/poster/osis.png"
-                  },
-                  {
-                    title: "Dirgahayu Indonesia 79",
-                    desc: "A creative poster commemorating Indonesia's 79th Independence Day, featuring red and white themes and iconic national elements.",
-                    category: "Poster Design",
-                    tools: ["Photoshop", "Canva"],
-                    color: "linear-gradient(135deg, #0EA5E9, #3B82F6)",
-                    image: "/images/poster/ri79.png"
-                  },
-                  {
-                    title: "Stop Bullying",
-                    desc: "An educational infographic designed to raise awareness about the dangers of bullying and promote a safe, inclusive school environment.",
-                    category: "Information Design",
-                    tools: ["Illustrator", "Figma"],
-                    color: "linear-gradient(135deg, #10B981, #059669)",
-                    image: "/images/poster/abully.png"
-                  },
-                  {
-                    title: "Event Name Tag",
-                    desc: "A creative and functional name tag design for event participants, featuring clear layout, vibrant colors, and personalized details to enhance attendee experience.",
-                    category: "Print Design",
-                    tools: ["Canva"],
-                    color: "linear-gradient(135deg, #F59E0B, #D97706)",
-                    image: "/images/poster/mocknametag.png"
-                  },
-                  {
-                    title: "Event Banner",
-                    desc: "A vibrant and eye-catching banner designed for a school event, combining bold typography and engaging visuals to attract attention and promote participation.",
-                    category: "Print Design",
-                    tools: ["Photoshop", "Canva"],
-                    color: "linear-gradient(135deg, #EC4899, #DB2777)",
-                    image: "/images/poster/bbmockup.png"
-                  },
-                  {
-                    title: "Ramadhan Kareem Poster",
-                    desc: "A festive poster celebrating the spirit of Ramadhan, featuring elegant calligraphy, crescent motifs, and a warm, inviting color palette.",
-                    category: "UI Design",
-                    tools: ["Canva"],
-                    color: "linear-gradient(135deg, #8B5CF6, #6D28D9)",
-                    image: "/images/poster/ramadhankareemm.png"
-                  }
-                ].map((design, index) => (
+                {(
+                  [
+                    {
+                      title: "OSIS Goodbye Design",
+                      desc: "A heartfelt farewell poster for OSIS members, combining memorable moments and creative visual elements to celebrate their journey.",
+                      category: "Poster Design",
+                      tools: ["Canva"],
+                      color: "linear-gradient(135deg, #4F46E5, #7C3AED)",
+                      image: "/images/poster/osis.png",
+                      date: "June 2024",
+                      client: "OSIS SMA Negeri 2 Rambah Hilir",
+                      detailedDesc: "This farewell design celebrates the contributions of OSIS members with a nostalgic yet forward-looking aesthetic. The design incorporates group photos, memorable quotes, and symbolic elements representing unity and growth during their time as student council members.",
+                      features: [
+                        "Custom typography with gradient effects",
+                        "Photo collage of memorable moments",
+                        "Integration of school colors and symbols",
+                        "Balanced composition highlighting key achievements"
+                      ]
+                    },
+                    {
+                      title: "Dirgahayu Indonesia 79",
+                      desc: "A creative poster commemorating Indonesia's 79th Independence Day, featuring red and white themes and iconic national elements.",
+                      category: "Poster Design",
+                      tools: ["Photoshop", "Canva"],
+                      color: "linear-gradient(135deg, #0EA5E9, #3B82F6)",
+                      image: "/images/poster/ri79.png",
+                      date: "August 2024",
+                      client: "School Independence Day Committee",
+                      detailedDesc: "This national day celebration poster features the rich heritage and promising future of Indonesia on its 79th Independence Day. The design balances patriotic symbolism with modern aesthetics, incorporating the iconic red and white national colors with creative typographic elements and subtle textures.",
+                      features: [
+                        "Dynamic composition with balanced negative space",
+                        "Integration of national symbols and motifs",
+                        "Custom typography with patriotic elements",
+                        "Subtle texture overlays to add visual depth"
+                      ]
+                    },
+                    {
+                      title: "Stop Bullying",
+                      desc: "An educational infographic designed to raise awareness about the dangers of bullying and promote a safe, inclusive school environment.",
+                      category: "Information Design",
+                      tools: ["Illustrator", "Figma"],
+                      color: "linear-gradient(135deg, #10B981, #059669)",
+                      image: "/images/poster/abully.png",
+                      date: "April 2024",
+                      client: "School Anti-Bullying Campaign",
+                      detailedDesc: "This anti-bullying campaign visual was designed to communicate both the emotional impact of bullying and practical steps to prevent it. The infographic format makes complex information accessible and memorable, while the color choices and imagery are strategically selected to evoke empathy and encourage positive action.",
+                      features: [
+                        "Clear information hierarchy with intuitive flow",
+                        "Inclusive imagery representing diverse students",
+                        "Direct yet compassionate messaging",
+                        "Actionable steps highlighted for immediate impact"
+                      ]
+                    },
+                    {
+                      title: "Event Name Tag",
+                      desc: "A creative and functional name tag design for event participants, featuring clear layout, vibrant colors, and personalized details to enhance attendee experience.",
+                      category: "Print Design",
+                      tools: ["Canva"],
+                      color: "linear-gradient(135deg, #F59E0B, #D97706)",
+                      image: "/images/poster/mocknametag.png",
+                      date: "July 2024",
+                      client: "School Event Organizing Committee",
+                      detailedDesc: "These name tags were designed to be both functional and visually appealing for a major school event. The layout prioritizes readability while incorporating event branding elements. Each tag includes attendee information, schedule highlights, and contact details in a compact, wearable format.",
+                      features: [
+                        "High-visibility typography for easy identification",
+                        "Color-coding system for different participant roles",
+                        "QR code integration for digital resources access",
+                        "Durable material selection with professional finish"
+                      ]
+                    },
+                    {
+                      title: "Event Banner",
+                      desc: "A vibrant and eye-catching banner designed for a school event, combining bold typography and engaging visuals to attract attention and promote participation.",
+                      category: "Print Design",
+                      tools: ["Photoshop", "Canva"],
+                      color: "linear-gradient(135deg, #EC4899, #DB2777)",
+                      image: "/images/poster/bbmockup.png",
+                      date: "March 2024",
+                      client: "School Special Events Committee",
+                      detailedDesc: "This large-format banner was designed to create immediate visual impact and communicate essential event details at a glance. The balanced composition draws viewers' attention to key information while maintaining overall visual harmony and reflecting the event's energetic atmosphere.",
+                      features: [
+                        "Strategic use of visual hierarchy for information flow",
+                        "Attention-grabbing typographic treatments",
+                        "Carefully selected color palette to evoke excitement",
+                        "Optimized for visibility from various distances"
+                      ]
+                    },
+                    {
+                      title: "Ramadhan Kareem Poster",
+                      desc: "A festive poster celebrating the spirit of Ramadhan, featuring elegant calligraphy, crescent motifs, and a warm, inviting color palette.",
+                      category: "UI Design",
+                      tools: ["Canva"],
+                      color: "linear-gradient(135deg, #8B5CF6, #6D28D9)",
+                      image: "/images/poster/ramadhankareemm.png",
+                      date: "February 2024",
+                      client: "Islamic Student Association",
+                      detailedDesc: "This Ramadhan greeting design combines traditional Islamic visual elements with contemporary design principles. The composition balances spiritual symbols with modern aesthetics to create a welcoming message that honors tradition while feeling relevant to today's audiences.",
+                      features: [
+                        "Authentic Arabic calligraphy integration",
+                        "Traditional Islamic patterns and motifs",
+                        "Warm color palette inspired by evening iftar gatherings",
+                        "Elegant composition balancing text and decorative elements"
+                      ]
+                    }
+                  ] as DesignProject[]
+                ).map((design: DesignProject, index: number) => (
                   <Col lg={4} md={6} key={index} className={index >= 3 ? "d-flex justify-content-center" : ""}>
                     <div className="design-card">
                       <div 
@@ -1170,7 +1255,10 @@ export default function Home() {
                               <span key={i} className="design-tool-badge">{tool}</span>
                             ))}
                           </div>
-                          <button className="design-view-btn mt-3">
+                          <button 
+                            className="design-view-btn mt-3"
+                            onClick={() => openDesignModal(design)}
+                          >
                             View Details <FaArrowRight className="ms-1" size={12} />
                           </button>
                         </div>
@@ -1184,6 +1272,83 @@ export default function Home() {
 
         </Container>
       </section>
+
+      {/* Design Detail Modal */}
+      <Modal
+        show={showModal}
+        onHide={closeDesignModal}
+        centered
+        size="lg"
+        dialogClassName="design-detail-modal compact-modal"
+      >
+        {selectedDesign && (
+          <>
+            <button 
+              className="btn-close-custom" 
+              onClick={closeDesignModal}
+              aria-label="Close"
+            >
+              <FaTimes />
+            </button>
+            <div className="compact-modal-container">
+              <div className="compact-modal-image">
+                <img 
+                  src={selectedDesign.image} 
+                  alt={selectedDesign.title}
+                  className="modal-design-image" 
+                />
+              </div>
+              <div className="compact-modal-content">
+                <div className="modal-category-badge">
+                  {selectedDesign.category}
+                </div>
+                <h3 className="modal-design-title">
+                  {selectedDesign.title}
+                </h3>
+                
+                <div className="modal-design-meta">
+                  <div className="modal-meta-item">
+                    <FaCalendarAlt className="modal-meta-icon" />
+                    <span>{selectedDesign.date}</span>
+                  </div>
+                  <div className="modal-meta-item">
+                    <FaUsers className="modal-meta-icon" />
+                    <span>{selectedDesign.client}</span>
+                  </div>
+                </div>
+                
+                <div className="content-scrollable-area">
+                  <div className="modal-design-tools mb-3">
+                    <h4 className="modal-section-title">Tools Used</h4>
+                    <div className="d-flex flex-wrap gap-2">
+                      {selectedDesign.tools.map((tool: string, i: number) => (
+                        <span key={i} className="modal-tool-badge">
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="modal-design-description mb-3">
+                    <h4 className="modal-section-title">Description</h4>
+                    <p>{selectedDesign.detailedDesc}</p>
+                  </div>
+                </div>
+                
+                <div className="text-center mt-3">
+                  <Button 
+                    variant="outline-primary" 
+                    className="modal-action-btn"
+                    onClick={closeDesignModal}
+                  >
+                    Close Preview
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </Modal>
 
       {/* Certificates Section */}
       <section id="certificates" className="section-fade">
@@ -2345,6 +2510,298 @@ export default function Home() {
           height: 100%;
           background: rgba(0, 0, 0, 0.3);
           z-index: 1;
+        }
+
+        /* Modal Styling */
+        .design-detail-modal .modal-content {
+          background-color: var(--bg-card);
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--border-radius-lg);
+          color: var(--text);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+        }
+        
+        .modal-image-container {
+          width: 100%;
+          height: 300px;
+          overflow: hidden;
+          margin-bottom: 1.5rem;
+          border-radius: var(--border-radius);
+          position: relative;
+        }
+        
+        .modal-design-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transition: transform 0.5s ease;
+        }
+        
+        .modal-image-container:hover .modal-design-image {
+          transform: scale(1.05);
+        }
+        
+        .modal-content-container {
+          padding: 0 1rem;
+        }
+        
+        .modal-category-badge {
+          display: inline-block;
+          background: var(--accent-gradient);
+          color: white;
+          padding: 5px 12px;
+          border-radius: 30px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+        }
+        
+        .modal-design-title {
+          font-size: 1.75rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          color: var(--text-bright);
+        }
+        
+        .modal-design-meta {
+          display: flex;
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        .modal-meta-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: var(--text-light);
+          font-size: 0.85rem;
+        }
+        
+        .modal-meta-icon {
+          color: var(--accent);
+        }
+        
+        .modal-section-title {
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--text-bright);
+          margin-bottom: 0.75rem;
+          position: relative;
+          padding-left: 0.75rem;
+        }
+        
+        .modal-section-title::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.25rem;
+          height: 1rem;
+          width: 3px;
+          background: var(--accent);
+          border-radius: 3px;
+        }
+        
+        .modal-design-tools {
+          margin-bottom: 1.5rem;
+        }
+        
+        .modal-tool-badge {
+          background: rgba(14, 165, 233, 0.15);
+          color: var(--accent);
+          border: 1px solid rgba(14, 165, 233, 0.3);
+          border-radius: 6px;
+          padding: 5px 10px;
+          font-size: 0.8rem;
+        }
+        
+        .modal-design-description {
+          margin-bottom: 1.5rem;
+        }
+        
+        .modal-design-description p {
+          color: var(--text-light);
+          font-size: 0.9rem;
+          line-height: 1.6;
+        }
+        
+        .feature-list {
+          padding-left: 1.25rem;
+        }
+        
+        .feature-list li {
+          color: var(--text-light);
+          margin-bottom: 0.5rem;
+          font-size: 0.9rem;
+          position: relative;
+        }
+        
+        .modal-action-btn {
+          border-radius: 8px;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
+        }
+        
+        .modal-action-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+        
+        .btn-close-custom {
+          background: var(--bg-card-hover);
+          border: none;
+          color: var(--text-light);
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          z-index: 5;
+        }
+        
+        .btn-close-custom:hover {
+          background: var(--accent);
+          color: white;
+          transform: rotate(90deg);
+        }
+
+        /* Compact Modal Styling */
+        .compact-modal .modal-content {
+          background-color: var(--bg-card);
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--border-radius-lg);
+          color: var(--text);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          padding: 0;
+        }
+        
+        .compact-modal-container {
+          display: flex;
+          flex-direction: row;
+          height: 500px;
+        }
+        
+        .compact-modal-image {
+          width: 45%;
+          height: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+        
+        .compact-modal-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transition: transform 0.5s ease;
+        }
+        
+        .compact-modal-image:hover img {
+          transform: scale(1.05);
+        }
+        
+        .compact-modal-content {
+          width: 55%;
+          height: 100%;
+          padding: 1.5rem;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .content-scrollable-area {
+          flex: 1;
+          overflow-y: auto;
+          padding-right: 10px;
+          margin-right: -10px;
+          scrollbar-width: thin;
+        }
+        
+        .content-scrollable-area::-webkit-scrollbar {
+          width: 6px;
+        }
+        
+        .content-scrollable-area::-webkit-scrollbar-thumb {
+          background-color: var(--border-subtle);
+          border-radius: 6px;
+        }
+        
+        .content-scrollable-area::-webkit-scrollbar-thumb:hover {
+          background-color: var(--accent);
+        }
+        
+        .modal-design-title {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 0.75rem;
+          color: var(--text-bright);
+        }
+        
+        .modal-section-title {
+          font-size: 0.9rem;
+          margin-bottom: 0.5rem;
+        }
+        
+        .modal-design-meta {
+          margin-bottom: 1rem;
+        }
+        
+        .modal-design-description p {
+          font-size: 0.85rem;
+          line-height: 1.5;
+          margin-bottom: 0;
+        }
+        
+        .feature-list {
+          padding-left: 1.25rem;
+          margin-bottom: 0;
+        }
+        
+        .feature-list li {
+          font-size: 0.85rem;
+          margin-bottom: 0.25rem;
+          line-height: 1.4;
+        }
+        
+        .btn-close-custom {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          z-index: 6;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+          .compact-modal-container {
+            flex-direction: column;
+            height: auto;
+            max-height: 85vh;
+          }
+          
+          .compact-modal-image {
+            width: 100%;
+            height: 200px;
+          }
+          
+          .compact-modal-content {
+            width: 100%;
+            max-height: calc(85vh - 200px);
+            overflow-y: auto;
+          }
+          
+          .content-scrollable-area {
+            overflow-y: visible;
+          }
         }
       `}</style>
     </Layout>

@@ -1,8 +1,0 @@
----
-description: 
-globs: 
-alwaysApply: true
----
-- selalu baca semua file dulu sebelum memodifikasi code agar mudah dan tidak ada kesalahan dalam pengeditan code
-
-- jangan mengubah standar yang telah ada

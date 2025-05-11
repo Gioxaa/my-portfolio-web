@@ -12,15 +12,15 @@
   --subtle-gradient: linear-gradient(to right, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.2));
   --card-bg: #1a2639;
   --header-bg: #0c1526;
-  --border-radius: 10px;
-  --border-radius-lg: 16px;
-  --border-radius-sm: 6px;
+  --border-radius: 8px; /* Reduced from 10px */
+  --border-radius-lg: 12px; /* Reduced from 16px */
+  --border-radius-sm: 4px; /* Reduced from 6px */
   --box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.5);
   --transition-normal: all 0.3s ease;
   --border-subtle: 1px solid rgba(148, 163, 184, 0.15);
-  --section-spacing: 4rem; /* New spacing variable for section gaps */
-  --card-padding: 1.75rem; /* Consistent card padding */
-  --element-spacing: 1.5rem; /* Consistent spacing between elements */
+  --section-spacing: 3.5rem; /* Reduced from 4rem */
+  --card-padding: 1.5rem; /* Reduced from 1.75rem */
+  --element-spacing: 1.25rem; /* Reduced from 1.5rem */
   --focus-ring: 0 0 0 3px rgba(14, 165, 233, 0.5);
   --error: #ef4444;
   --success: #10b981;
@@ -37,13 +37,41 @@ body {
   margin: 0;
   scroll-behavior: smooth;
   line-height: 1.7;
-  font-size: 16px;
+  font-size: 14px; /* Reduced from 16px */
   scroll-padding-top: 90px; /* Increased for better section visibility */
+  /* Prevent browser zoom */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+html {
+  /* Force fixed scale */
+  min-height: 100%;
+  min-width: 100%;
+  overflow-x: hidden;
+  max-height: 100%;
+}
+
+body {
+  /* Force fixed scale */
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Additional code to detect and prevent zoom */
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 14px; /* Match base font size */
+  }
 }
 
 @media (max-width: 768px) {
   html, body {
-    font-size: 15px;
+    font-size: 13px; /* Reduced from 15px */
     scroll-padding-top: 80px;
   }
 }
@@ -178,14 +206,14 @@ section:last-of-type::after {
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 0.75rem 0;
+  padding: 0.6rem 0; /* Reduced from 0.75rem */
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 1000;
   transform: translateY(0);
 }
 
 .navbar.scrolled {
-  padding: 0.5rem 0;
+  padding: 0.4rem 0; /* Reduced from 0.5rem */
   background-color: rgba(12, 21, 38, 0.95) !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 0 0 20px rgba(0, 0, 0, 0.15);
   transform: translateY(0);
@@ -193,7 +221,7 @@ section:last-of-type::after {
 
 .navbar-brand {
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.3rem; /* Reduced from 1.4rem */
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -211,12 +239,12 @@ section:last-of-type::after {
 }
 
 .logo-icon {
-  width: 36px;
-  height: 36px;
+  width: 32px; /* Reduced from 36px */
+  height: 32px; /* Reduced from 36px */
   background: var(--accent-gradient);
-  border-radius: 10px;
+  border-radius: 8px; /* Reduced from 10px */
   color: white;
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reduced from 1.1rem */
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4), 0 0 20px rgba(14, 165, 233, 0.2);
   display: flex;
@@ -492,6 +520,7 @@ section:last-of-type::after {
   overflow: hidden;
   margin-bottom: var(--element-spacing);
   backdrop-filter: blur(5px);
+  font-size: 0.95rem; /* Added to reduce text size in cards */
 }
 
 .card::before {
@@ -536,12 +565,13 @@ section:last-of-type::after {
 
 .btn {
   font-weight: 500;
-  padding: 0.5rem 1.25rem;
+  padding: 0.45rem 1.15rem; /* Reduced from 0.5rem 1.25rem */
   border-radius: var(--border-radius-sm);
   transition: var(--transition-normal);
   position: relative;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem; /* Added to reduce button text size */
 }
 
 .btn:focus {
@@ -609,7 +639,7 @@ section:last-of-type::after {
   color: var(--text-bright);
   position: relative;
   display: inline-block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem; /* Reduced from 1.5rem */
   font-weight: 700;
   padding-top: 0.25rem;
   text-shadow: 0 2px 10px rgba(14, 165, 233, 0.15);
@@ -618,10 +648,10 @@ section:last-of-type::after {
 .section-title:after {
   content: '';
   position: absolute;
-  width: 50px;
+  width: 45px; /* Reduced from 50px */
   height: 3px;
   background: var(--accent-gradient);
-  bottom: -10px;
+  bottom: -8px; /* Reduced from -10px */
   left: 0;
   border-radius: 50px;
   box-shadow: 0 2px 10px rgba(14, 165, 233, 0.4);
@@ -629,9 +659,9 @@ section:last-of-type::after {
 
 .section-subtitle {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reduced from 1.1rem */
   max-width: 650px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.25rem; /* Reduced from 2.5rem */
 }
 
 /* Text colors */
@@ -656,7 +686,7 @@ section:last-of-type::after {
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-bright);
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem; /* Reduced from 1rem */
   line-height: 1.4;
 }
 
@@ -668,11 +698,12 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 10px rgba(14, 165, 233, 0.2);
+  font-size: 3rem !important; /* Added specific size */
 }
 
 .lead {
   color: var(--text-light);
-  font-size: 1.15rem;
+  font-size: 1.05rem; /* Reduced from 1.15rem */
   font-weight: 400;
   line-height: 1.8;
 }
@@ -681,8 +712,8 @@ h1, h2, h3, h4, h5, h6 {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 6rem 0 5rem !important;
-  min-height: 100vh;
+  padding: 5rem 0 4rem !important; /* Reduced from 6rem 0 5rem */
+  min-height: 95vh; /* Reduced from 100vh */
   display: flex;
   align-items: center;
   background: radial-gradient(ellipse at bottom right, rgba(14, 165, 233, 0.08), transparent 70%),
@@ -802,10 +833,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Title */
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 3.2rem; /* Reduced from 3.5rem */
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem; /* Reduced from 1.5rem */
 }
 
 .gradient-name {
@@ -815,6 +846,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
   display: block;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  font-size: 3.3rem; /* Added specific size */
 }
 
 .typewriter-container {
@@ -825,14 +857,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .typewriter-prefix {
-  font-size: 1.75rem;
+  font-size: 1.6rem; /* Reduced from 1.75rem */
   font-weight: 600;
   margin-right: 0.5rem;
-    opacity: 0.8;
-  }
+  opacity: 0.8;
+}
 
 .typewriter-text {
-  font-size: 1.75rem;
+  font-size: 1.6rem; /* Reduced from 1.75rem */
   font-weight: 700;
   color: var(--accent);
   position: relative;
