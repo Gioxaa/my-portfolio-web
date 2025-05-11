@@ -76,11 +76,11 @@ export default function Home() {
         let text = '';
         let typingSpeed = 100;
         
-        // Constants for timing
-        const deletingSpeed = 50;         // Faster when deleting
-        const typingVariation = 80;       // Base typing speed variation
-        const pauseBeforeDelete = 2000;   // Wait before starting to delete
-        const pauseBeforeNewWord = 500;   // Wait before typing new word
+        // Constants for timing with simple, consistent values
+        const deletingSpeed = 50;          // Base deletion speed - consistent
+        const typingSpeed_base = 100;      // Base typing speed - consistent
+        const pauseBeforeDelete = 2000;    // Wait before starting to delete
+        const pauseBeforeNewWord = 500;    // Wait before typing new word
         
         // Clear any existing content
         typewriterElement.textContent = '';
@@ -88,38 +88,32 @@ export default function Home() {
         const type = () => {
           const currentRole = roles[currentIndex];
           
-          // Handle typing or deleting
           if (isDeleting) {
-            // Delete a character
+            // Simple deletion with a fixed speed
             text = currentRole.substring(0, text.length - 1);
             typingSpeed = deletingSpeed;
           } else {
-            // Add a character
+            // Simple typing with a fixed speed
             text = currentRole.substring(0, text.length + 1);
-            // Random speed variation for natural effect
-            typingSpeed = Math.random() * 50 + typingVariation;
+            typingSpeed = typingSpeed_base;
           }
           
           // Update the text content
           typewriterElement.textContent = text;
           
-          // Logic for changing state after typing/deleting
+          // Logic for changing state
           if (!isDeleting && text === currentRole) {
-            // Finished typing the word, pause before deleting
+            // Finished typing, wait then delete
             isDeleting = true;
             typingSpeed = pauseBeforeDelete;
           } else if (isDeleting && text === '') {
-            // Finished deleting the word
+            // Finished deleting, move to next word
             isDeleting = false;
-            
-            // Move to next role
             currentIndex = (currentIndex + 1) % roles.length;
-            
-            // Pause before typing the next word
             typingSpeed = pauseBeforeNewWord;
           }
           
-          // Continue the typing animation
+          // Schedule the next update
           setTimeout(type, typingSpeed);
         };
         
