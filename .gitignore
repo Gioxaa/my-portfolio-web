@@ -92,6 +92,7 @@ dist/
 .cursor/
 .cursor-data/
 .cursor/rules
+/.cursor/
 
 # Personal files
 personal-notes/
