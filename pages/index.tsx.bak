@@ -405,7 +405,7 @@ export default function Home() {
                 <span className="gradient-name">Muhammad Reyhan</span>
                 <div className="typewriter-container">
                   <span className="typewriter-prefix">I'm a </span>
-                  <span className="typewriter-text" data-rotate='["Developer", "Designer", "Cybersecurity Enthusiast"]'></span>
+                  <span className="typewriter-text" data-rotate='["Developer", "Designer", "Prompt Engineer", "Security Enthusiast"]'></span>
                 </div>
               </h1>
               
@@ -420,22 +420,22 @@ export default function Home() {
               </p>
               
               <div className="hero-buttons d-flex gap-3 justify-content-center justify-content-lg-start">
-                <Button variant="primary" href="mailto:reyhanmhd25@gmail.com" className="btn-glow">
+                <Button variant="primary" href="mailto:reyhan@example.com" className="btn-glow">
                   <FaEnvelope className="me-2" />
                   Email Me
                 </Button>
-                <Button variant="outline-light" href="https://github.com/Gioxaa" target="_blank" rel="noopener noreferrer" className="btn-touch-effect">
+                <Button variant="outline-light" href="https://github.com/yourusername" target="_blank" className="btn-touch-effect">
                   <FaGithub className="me-2" />
                   GitHub
                 </Button>
-                <a href="https://drive.google.com/file/d/1wJcYdh4XGr5qXLN6ElT0JIR0HtkV_ZrX/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-touch-effect d-none d-md-block">
+                <a href="/files/cv-muhammad-reyhan.pdf" download className="btn btn-outline-primary btn-touch-effect d-none d-md-block">
                   <FaFileDownload className="me-2" />
                   Resume
                 </a>
               </div>
               
               <div className="d-block d-md-none mt-3 text-center">
-                <a href="https://drive.google.com/file/d/1wJcYdh4XGr5qXLN6ElT0JIR0HtkV_ZrX/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-touch-effect">
+                <a href="/files/cv-muhammad-reyhan.pdf" download className="btn btn-outline-primary btn-touch-effect">
                   <FaFileDownload className="me-2" />
                   Resume
                 </a>
@@ -1001,22 +1001,164 @@ export default function Home() {
           <p className="section-subtitle">Portfolio of projects and experiments I've created</p>
 
           {/* Tabs for Programming and Design */}
-          <div className="d-flex mb-4" style={{ gap: '1rem' }}>
+          <div className="d-flex mb-4" style={{ gap: '1.5rem' }}>
             <button
-              className={`btn ${projectTab === 'programming' ? 'btn-primary' : 'btn-outline-light'}`}
-              style={{ minWidth: 120 }}
+              className={`project-tab-btn ${projectTab === 'programming' ? 'active' : ''}`}
               onClick={() => setProjectTab('programming')}
             >
-              Programming
+              <span className="btn-content">
+                <FaCode className="btn-icon" />
+                Programming
+              </span>
             </button>
             <button
-              className={`btn ${projectTab === 'design' ? 'btn-primary' : 'btn-outline-light'}`}
-              style={{ minWidth: 120 }}
+              className={`project-tab-btn ${projectTab === 'design' ? 'active' : ''}`}
               onClick={() => setProjectTab('design')}
             >
-              Design
+              <span className="btn-content">
+                <FaCamera className="btn-icon" />
+                Design
+              </span>
             </button>
           </div>
+
+          {/* Add styles for the animated project tab buttons */}
+          <style jsx>{`
+            .project-tab-btn {
+              position: relative;
+              border: none;
+              background: var(--bg-card-hover);
+              color: var(--text);
+              padding: 0;
+              border-radius: 10px;
+              min-width: 140px;
+              height: 48px;
+              font-weight: 500;
+              font-size: 0.95rem;
+              overflow: hidden;
+              transition: all 0.3s ease;
+            }
+            
+            .project-tab-btn::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              border-radius: 10px;
+              padding: 2px;
+              background: linear-gradient(135deg, transparent 40%, rgba(14, 165, 233, 0.3), rgba(139, 92, 246, 0.5));
+              -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              -webkit-mask-composite: xor;
+              mask-composite: exclude;
+              opacity: 0.5;
+              transition: all 0.3s ease;
+            }
+            
+            .btn-content {
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 8px;
+              width: 100%;
+              height: 100%;
+              z-index: 2;
+            }
+            
+            .btn-icon {
+              font-size: 1rem;
+              transition: all 0.3s ease;
+            }
+            
+            .project-tab-btn:hover {
+              transform: translateY(-2px);
+              background: var(--bg-card-hover);
+              box-shadow: 0 5px 15px rgba(14, 165, 233, 0.2);
+            }
+            
+            .project-tab-btn:hover::before {
+              opacity: 0.8;
+              background: linear-gradient(135deg, transparent 20%, rgba(14, 165, 233, 0.5), rgba(139, 92, 246, 0.7));
+            }
+            
+            .project-tab-btn:active {
+              transform: scale(0.97);
+              box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+              transition: all 0.1s ease;
+            }
+            
+            .project-tab-btn:active::before {
+              opacity: 1;
+            }
+            
+            .project-tab-btn.active {
+              background: var(--accent);
+              color: white;
+              box-shadow: 0 5px 20px rgba(14, 165, 233, 0.4);
+              position: relative;
+              overflow: hidden;
+            }
+            
+            .project-tab-btn.active::before {
+              background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+              opacity: 1;
+              animation: pulse-border 2s infinite;
+            }
+            
+            .project-tab-btn.active::after {
+              content: '';
+              position: absolute;
+              inset: 0;
+              z-index: 1;
+              background: radial-gradient(circle at center, rgba(14, 165, 233, 0.8), transparent 60%);
+              opacity: 0.3;
+              filter: blur(15px);
+              animation: pulse-glow 3s infinite;
+            }
+            
+            /* Shimmer effect for active button */
+            .project-tab-btn.active .btn-content::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 50%;
+              height: 100%;
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+              );
+              transform: skewX(-25deg);
+              animation: shimmer 3s infinite;
+            }
+            
+            @keyframes shimmer {
+              0% { left: -100%; }
+              20%, 100% { left: 200%; }
+            }
+            
+            @keyframes pulse-border {
+              0%, 100% { opacity: 0.6; }
+              50% { opacity: 1; }
+            }
+            
+            @keyframes pulse-glow {
+              0%, 100% { opacity: 0.3; filter: blur(15px); }
+              50% { opacity: 0.5; filter: blur(20px); }
+            }
+            
+            @media (max-width: 576px) {
+              .project-tab-btn {
+                min-width: 120px;
+                height: 44px;
+                font-size: 0.85rem;
+              }
+            }
+          `}</style>
 
           {/* Programming Projects Carousel/Scroll */}
           {projectTab === 'programming' && (
@@ -1609,7 +1751,7 @@ export default function Home() {
                 <h2 className="collaboration-title mb-3">Interested in Collaboration?</h2>
                 <p className="collaboration-text mb-4">I'm open to internship opportunities, part-time work, and project collaborations</p>
                 <div className="d-flex justify-content-center gap-3">
-                  <Button variant="primary" className="collaboration-btn" href="mailto:reyhanmhd25@gmail.com">
+                  <Button variant="primary" className="collaboration-btn" href="mailto:reyhan@example.com">
                     <FaEnvelope className="me-2" />
                     Contact Me
                   </Button>

@@ -7,10 +7,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { icon: <FaEnvelope />, url: 'mailto:reyhan@example.com', label: 'Email' },
+    { icon: <FaEnvelope />, url: 'mailto:reyhanmhd25@gmail.com', label: 'Email' },
     { icon: <FaWhatsapp />, url: 'https://wa.me/6281234567890', label: 'WhatsApp' },
-    { icon: <FaGithub />, url: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' }
+    { icon: <FaGithub />, url: 'https://github.com/Gioxaa', label: 'GitHub' },
+    { icon: <FaLinkedin />, url: 'https://linkedin.com/in/muhammad-reyhan-gx', label: 'LinkedIn' }
   ];
   
   const menuLinks = [

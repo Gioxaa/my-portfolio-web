@@ -269,8 +269,9 @@ const Header = () => {
               <span>Bug Hunting Journal</span>
             </Link>
             <a 
-              href="/files/cv-muhammad-reyhan.pdf" 
-              download 
+              href="https://drive.google.com/file/d/1wJcYdh4XGr5qXLN6ElT0JIR0HtkV_ZrX/view?usp=sharing" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="ms-lg-3 mt-3 mt-lg-0 resume-download-link" 
               onClick={() => {if (expanded) setExpanded(false)}}
               role="button"

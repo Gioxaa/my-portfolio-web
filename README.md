@@ -1,45 +1,45 @@
-# Portfolio Muhammad Reyhan
+# Muhammad Reyhan - Portfolio
 
-Website portfolio pribadi yang dibuat dengan Next.js dan Bootstrap, menampilkan keahlian di bidang pemrograman, AI prompt engineering, dan cybersecurity bug bounty.
+A personal portfolio website built with Next.js and Bootstrap, showcasing skills in programming, and cybersecurity bug bounty.
 
-## Teknologi yang Digunakan
+## Technologies Used
 
 - **Framework**: [Next.js](https://nextjs.org/)
-- **UI Framework**: [Bootstrap 5](https://getbootstrap.com/) dengan [React-Bootstrap](https://react-bootstrap.github.io/)
+- **UI Framework**: [Bootstrap 5](https://getbootstrap.com/) with [React-Bootstrap](https://react-bootstrap.github.io/)
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
-- **Styling**: CSS dengan custom variables dan theme
-- **Deployment**: Dioptimasi untuk deployment di [Vercel](https://vercel.com/)
+- **Styling**: CSS with custom variables and theme
+- **Deployment**: Optimized for deployment on [Vercel](https://vercel.com/)
 
-## Fitur
+## Features
 
-- Desain responsif untuk berbagai ukuran perangkat
-- Mode semi-gelap dengan aksen warna terang 
-- Optimasi SEO dengan metadata yang tepat
-- Navigasi yang mudah dan intuitif
-- Animasi sederhana untuk meningkatkan pengalaman pengguna
+- Responsive design for various device sizes
+- Semi-dark mode with bright accent colors
+- SEO optimization with proper metadata
+- Intuitive and easy navigation
+- Simple animations to enhance user experience
 
-## Struktur Halaman
+## Page Structure
 
-- **Beranda**: Pengenalan singkat dengan hero section
-- **Tentang Saya**: Informasi pendidikan, pengalaman organisasi, dan prestasi
-- **Keahlian**: Menampilkan kemampuan teknis dengan progress bar
-- **Karya & Proyek**: Gallery proyek yang telah dikerjakan
-- **Sertifikat**: Carousel menampilkan sertifikat yang dimiliki
-- **Jurnal Bug Hunting**: Dokumentasi eksplorasi keamanan untuk pembelajaran
+- **Home**: Brief introduction with hero section
+- **About Me**: Information about education, organizational experience, and achievements
+- **Skills**: Showcase of technical abilities with visual indicators
+- **Works & Projects**: Gallery of completed projects
+- **Certificates**: Carousel displaying earned certificates
+- **Bug Hunting Journal**: Documentation of security explorations for learning purposes
 
-## Menjalankan Proyek
+## Running the Project
 
-### Persyaratan
+### Requirements
 
-- Node.js 14.x atau lebih tinggi
-- NPM 7.x atau lebih tinggi
+- Node.js 14.x or higher
+- NPM 7.x or higher
 
-### Langkah-langkah
+### Steps
 
-1. Clone repository ini
+1. Clone this repository
    ```bash
-   git clone https://github.com/username/portfolio-muhammad-reyhan.git
-   cd portfolio-muhammad-reyhan
+   git clone https://github.com/Gioxaa/portfolio.git
+   cd portfolio
    ```
 
 2. Install dependencies
@@ -47,21 +47,29 @@ Website portfolio pribadi yang dibuat dengan Next.js dan Bootstrap, menampilkan 
    npm install
    ```
 
-3. Jalankan development server
+3. Run development server
    ```bash
    npm run dev
    ```
 
-4. Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat hasilnya
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result
 
 ## Deployment
 
-Project ini siap untuk di-deploy ke Vercel:
+This project is ready to be deployed to Vercel:
 
-1. Push kode ke GitHub
-2. Import project di Vercel
-3. Vercel akan mendeteksi konfigurasi Next.js dan otomatis menyiapkan build settings
+1. Push code to GitHub
+2. Import project in Vercel
+3. Vercel will detect the Next.js configuration and automatically set up build settings
 
-## Proyek Lainnya
+## Other Projects
 
-Kunjungi [GitHub](https://github.com/yourusername) untuk melihat proyek-proyek lainnya.
+Visit [GitHub](https://github.com/Gioxaa) to see my other projects.
+
+## Contact
+
+Feel free to reach out to me:
+
+- Email: [reyhanmhd25@gmail.com](mailto:reyhanmhd25@gmail.com)
+- LinkedIn: [muhammad-reyhan-gx](https://linkedin.com/in/muhammad-reyhan-gx)
+- GitHub: [Gioxaa](https://github.com/Gioxaa)

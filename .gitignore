@@ -5,31 +5,43 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+/yarn.lock
+/package-lock.json
+/.yarn
 
 # testing
 /coverage
+/junit.xml
+/.nyc_output
 
 # next.js
 /.next/
 /out/
+/next.config.original.js
 
 # production
 /build
+/dist
+/.netlify
 
 # misc
 .DS_Store
 *.pem
+*.env
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
 
 # local env files
 .env*.local
 .env
 .env.development
 .env.production
+.env.test
 
 # vercel
 .vercel
@@ -43,10 +55,17 @@ next-env.d.ts
 .vscode/
 *.sublime-project
 *.sublime-workspace
+.project
+.classpath
+*.launch
+.settings/
+*.code-workspace
+.history/
 
 # Logs
 logs
 *.log
+log.txt
 
 # OS generated files
 .DS_Store
@@ -56,16 +75,39 @@ logs
 .Trashes
 ehthumbs.db
 Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
 # Optional
 .cache/
 dist/
 .temp/
 .tmp/
+.sass-cache/
+.parcel-cache
 
 # Cursor Editor related
 .cursor/
 .cursor-cache/
+.cursor/
+.cursor-data/
 
 # Personal files
 personal-notes/
+notes/
+TODO.md
+.todo
+
+# Generated files
+/public/sitemap*.xml
+/public/robots.txt
+/public/sw.js
+/public/workbox-*.js
+.eslintcache
+
+# Analytics and metrics
+/coverage-report
+/storybook-static
+/stats.html
+/bundle-stats.html
+.lighthouse

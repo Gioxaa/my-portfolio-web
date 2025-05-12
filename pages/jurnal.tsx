@@ -78,7 +78,7 @@ export default function BugHuntingJournal() {
       title: 'SQL Injection',
       description: 'Using the SQL Query to test for injection vulnerability, then proceeding with testing using sqlmap to confirm the vulnerability. Results indicated potential sensitive data extraction through improperly validated queries.',
       method: 'SQL Injection',
-      target: 'https://sda.pu.go.id/balai/bbwsnt2/page.php?idn=14',
+      target: 'sda.pu.go.id/balai/bbwsnt2/page.php',
       date: 'April 2025'
     },
     {
@@ -169,7 +169,7 @@ export default function BugHuntingJournal() {
           
           <div className="text-center mt-5">
             <p className="text-secondary">
-              If you have a bug bounty program and would like to collaborate, <a href="mailto:reyhan@example.com" className="link-accent">contact me</a>.
+              If you have a bug bounty program and would like to collaborate, <a href="mailto:reyhanmhd25@gmail.com" className="link-accent">contact me</a>.
             </p>
           </div>
         </Container>
